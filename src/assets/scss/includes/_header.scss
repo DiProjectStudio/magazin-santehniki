@@ -1,0 +1,57 @@
+.header {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  position: sticky;
+  top: 12px;
+  left: 0;
+  right: 0;
+  background-color: $white-80;
+  &__inner {
+    @include flexCenterBetween;
+
+    &_logo {
+      width: 117px;
+      height: auto;
+    }
+
+    &_navbar {
+      display: none;
+
+      @include breakpoint(lg) {
+        display: block;
+      }
+    }
+
+    &_call {
+      display: none;
+    }
+
+    &_numbers {
+      display: none;
+    }
+
+    &_burger-menu {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
+
+
+.header__inner_navbar-items {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: repeat(5, fit-content(100%));
+  gap: 30px;
+}
+
+.header__inner_navbar-item {
+  a {
+    color: $black;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%;
+    text-transform: uppercase;
+  }
+}

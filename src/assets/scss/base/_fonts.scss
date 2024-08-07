@@ -1,0 +1,11 @@
+:root {
+  --font-family-main: 'Poppins', sans-serif;
+}
+
+$mainFont: var(--font-family-main);
+
+body {
+  font-family: $mainFont;
+  font-weight: 500;
+  font-style: normal;
+}

@@ -1,0 +1,26 @@
+:root {
+    --transition-style: all .3s ease;
+    --color-black: #000000;
+    --color-white: #ffffff;
+    --color-grey-style: #B1B1B1;
+    --color-prime: #7390EB;
+    --color-grey-white-65: #F1F1F1A6;
+    --color-white-80: #FFFFFFCC;
+    --color-button-default: #7390EB;
+    --color-button-hover: #4C76F8;
+    --color-button-click: #3660E1;
+    --color-button-grey: #F3F3F3;
+}
+
+$black: var(--color-black);
+$white: var(--color-white);
+$grey: var(--color-grey-style);
+$prime: var(--color-prime);
+$gray-white-65: var(--color-grey-white-65);
+$color-white-80: var(--color-white-80);
+$button-default: var(--color-button-default);
+$button-hover: var(--color-button-hover);
+$button-click: var(--color-button-click);
+$button-grey: var(--color-button-grey);
+$transition: var(--transition-style);
+

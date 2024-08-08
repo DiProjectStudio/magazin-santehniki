@@ -2,26 +2,49 @@ block footer
     footer#footer.footer
         .container
             .footer__inner
-                .footer__inner_top
-                    .footer__inner_top-questions
+                .footer__inner-top
+                    .footer__inner-top_questions
                         h2 Остались вопросы? Приезжайте к нам в офис или оставляйте заявку на сайте
                         .btn Стать партнером
-                        .footer__inner_top-questions_working-time Пн-Пт 9:00 -  21:00
-                        .footer__inner_top-questions_socials
-                            noindex
-
-
-
-
-
-
-
+                        .footer__inner-top_questions_bottom
+                            .footer__inner-top_questions_bottom_working-time Пн-Пт 9:00 -  21:00
+                            .footer__inner-top_questions_bottom_socials
+                                noindex
+                                    a(href='javascript:void(0)' target='_blank' rel='nofollow' title='Мы в Watsapp').social
+                                        include ../assets/images/socials/watsapp.svg
+                                noindex
+                                    a(href='javascript:void(0)' target='_blank' rel='nofollow' title='Мы в Telegram').social
+                                        include ../assets/images/socials/telegram.svg
+                                noindex
+                                    a(href='javascript:void(0)' target='_blank' rel='nofollow' title='Мы на Youtube').social
+                                        include ../assets/images/socials/youtube.svg
+                    .footer__inner-top_contacts
+                        .footer-title КОНТАКТЫ:
+                        .footer__inner-top_contacts_items
+                            .footer__inner-top_contacts_item
+                                .footer__inner-top_contacts_item-title телефон:
+                                .footer__inner-top_contacts_item-content
+                                    a(href='tel:88005505072') 8(800)-550-50-72
+                                    a(href='tel:79772811720') +7(977)281-17-20
+                            .footer__inner-top_contacts_item
+                                .footer__inner-top_contacts_item-title email:
+                                .footer__inner-top_contacts_item-content
+                                    a(href='mailto:ssww-cnt@mail.ru') ssww-cnt@mail.ru
+                            .footer__inner-top_contacts_item
+                                .footer__inner-top_contacts_item-title адрес офиса:
+                                .footer__inner-top_contacts_item-content г. Москва, Крутитский Вал, 14  офис 203
+                    .footer__inner-top_materials
+                        .footer-title МАТЕРИАЛЫ:
+                        .footer__inner-top_materials-items
+                            .footer__inner-top_materials-item
+                                a(href='javascript:void(0)') Сертификаты
+                            .footer__inner-top_materials-item
+                                a(href='javascript:void(0)') Презентации и каталоги
 
                 .footer__bottom
                     .footer__policy
-                        a(href="policy.html").footer__title.link.link--white-opacity Политика конфиденциальности
-
+                        a(href="policy.html") политика конфиденциальности
                     .footer__devs
-                        a(href="https://di-project.studio/") Разработка сайта:
+                        a(href="https://di-project.studio/") разработка сайта
                         span  Di-Project.Studio
                     .footer__company

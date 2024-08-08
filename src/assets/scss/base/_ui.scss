@@ -142,7 +142,7 @@ li {
     background: $btn-click;
   }
 
-  &.btn-transparent {
+  &.btn--transparent {
     background: transparent;
     border: 1px solid $btn-default;
     color: $btn-default;
@@ -171,6 +171,14 @@ a {
 /// ICONS
 /////////////////////
 
+.social {
+  &:hover svg path {
+    fill: $btn-hover;
+  }
+  &:active svg path {
+    fill: $btn-click;
+  }
+}
 
 /////////////////////
 /// OTHERS

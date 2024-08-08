@@ -9,7 +9,7 @@
     --container: 20px;
   }
 
-  @include breakpoint(xl) {
+  @include breakpoint(hd) {
     --container: 0;
   }
 }

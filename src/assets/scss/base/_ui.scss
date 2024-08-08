@@ -115,7 +115,48 @@ li {
 /////////////////////
 /// BUTTONS
 /////////////////////
+.btn {
+  background-color: $btn-default;
+  color: $white;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  text-transform: uppercase;
+  padding: 12px 16px;
+  border-radius: 5px;
+  width: fit-content;
+  cursor: pointer;
+  transition: $transition;
 
+  @include breakpoint(lg) {
+    font-size: 16px;
+    padding: 16px 30px;
+    border-radius: 10px;
+  }
+
+  &:hover {
+    background: $btn-hover;
+  }
+
+  &:active {
+    background: $btn-click;
+  }
+
+  &.btn-transparent {
+    background: transparent;
+    border: 1px solid $btn-default;
+    color: $btn-default;
+    &:hover {
+      border: 1px solid $btn-hover;
+      color: $btn-hover;
+    }
+
+    &:active {
+      border: 1px solid $btn-click;
+      color: $btn-click;
+    }
+  }
+}
 
 
 /////////////////////

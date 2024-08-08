@@ -4,7 +4,7 @@ block header
     header#header.header
         .container
             .header__inner
-                .header__inner_logo
+                a(href='/').header__inner_logo
                     +img('logo.svg')
                 .header__inner_navbar
                     nav.nav
@@ -20,10 +20,11 @@ block header
                             li.header__inner_navbar-item
                                 a(href='javascript:void(0)') сервисный центр
                 .header__inner_call
-                    a(href='javascript:void(0)') Заказать звонок
-                .header__inner_numbers
-                    a(href='tel:88005505072') 8800-550-50-72
-                    a(href='tel:79772811720') +7(977)281-17-20
+                    .header__inner_call-text
+                        a(href='javascript:void(0)') Заказать звонок
+                    .header__inner_call-numbers
+                        a(href='tel:88005505072') 8800-550-50-72
+                        a(href='tel:79772811720') +7(977)281-17-20
                 .header__inner_burger-menu
                     +img('burger-menu.svg')
 

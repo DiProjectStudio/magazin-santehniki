@@ -6,6 +6,7 @@
   left: 0;
   right: 0;
   background-color: $white-80;
+
   &__inner {
     @include flexCenterBetween;
 
@@ -24,25 +25,100 @@
 
     &_call {
       display: none;
+
+      @include breakpoint(lg) {
+        display: grid;
+        grid-auto-flow: column;
+        justify-content: space-between;
+        align-items: center;
+        gap: 21px;
+      }
+
+      @include breakpoint(xl) {
+        gap: 53px;
+      }
+
+      &-text {
+        color: $btn-default;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 600;
+        position: relative;
+
+        &:hover {
+          color: $btn-hover;
+        }
+
+        &:active {
+          color: $btn-click;
+        }
+
+        @include breakpoint(xl) {
+          font-size: 16px;
+        }
+
+        &::before {
+          content: '';
+          position: absolute;
+          width: 100%;
+          height: 1px;
+          background-color: #7390EB;
+          bottom: -2px;
+          left: 0;
+          transform-origin: right;
+          transform: scaleX(0);
+          transition: transform .3s ease-in-out;
+        }
+
+        &:hover::before {
+          transform-origin: left;
+          transform: scaleX(1);
+          background-color: $btn-hover;
+        }
+        &:active::before {
+          background-color: $btn-click;
+        }
+      }
+
+      &-numbers {
+        display: grid;
+        grid-auto-flow: row;
+        justify-items: flex-end;
+        gap: 6px;
+        color: $black;
+        text-align: right;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 120%;
+
+        @include breakpoint(xl) {
+          font-size: 20px;
+        }
+      }
     }
 
-    &_numbers {
-      display: none;
-    }
 
     &_burger-menu {
       width: 24px;
       height: 24px;
+
+      @include breakpoint(lg) {
+        display: none;
+      }
     }
   }
 }
 
-
 .header__inner_navbar-items {
   display: grid;
   grid-template-rows: 1fr;
-  grid-template-columns: repeat(5, fit-content(100%));
+  grid-auto-flow: column;
   gap: 30px;
+
+  @include breakpoint(xl) {
+    gap: 50px;
+  }
 }
 
 .header__inner_navbar-item {
@@ -53,5 +129,29 @@
     font-weight: 500;
     line-height: 120%;
     text-transform: uppercase;
+    position: relative;
+    text-wrap: nowrap;
+
+    @include breakpoint(xl) {
+      font-size: 16px;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      background-color: #18272F;
+      bottom: -5px;
+      left: 0;
+      transform-origin: right;
+      transform: scaleX(0);
+      transition: transform .3s ease-in-out;
+    }
+
+    &:hover::before {
+      transform-origin: left;
+      transform: scaleX(1);
+    }
   }
 }

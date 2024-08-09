@@ -24,6 +24,7 @@
     }
 
     &_menu {
+      transition: .3s ease;
 
       @include breakpoint(lg) {
         display: grid;
@@ -204,8 +205,7 @@
   gap: 24px;
   transform: translateY(calc(40% + 152px));
   z-index: 2;
-  //top: 152px;
-  transition: .3s ease;
+
 
   @include breakpointCustom(361px) {
     border-radius: 10px;

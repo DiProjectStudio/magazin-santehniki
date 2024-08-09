@@ -130,6 +130,7 @@ li {
   width: fit-content;
   height: fit-content;
   cursor: pointer;
+  text-wrap: nowrap;
   transition: $transition;
   @include flexCenterCenter;
 

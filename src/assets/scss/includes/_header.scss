@@ -5,16 +5,27 @@
   top: 12px;
   left: 0;
   right: 0;
-  z-index: 2;
+  z-index: 1;
   background-color: $white-80;
 
   &__inner {
     @include flexCenterBetween;
+    &_overlay {
+      position: absolute;
+      top: -24px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.4);
+      width: 100vw;
+      height: 100vh;
+      z-index: 2;
+      display: none;
+    }
 
     &_menu {
       //top: 152px;
       //transform: translateX(100%);
-      //z-index: 4;
 
       @include breakpoint(lg) {
         display: grid;
@@ -181,9 +192,9 @@
   }
 }
 
-
+////////////////////////////////////////////////////////////
 ////////////////////////NAVBAR//////////////////////////////
-
+////////////////////////////////////////////////////////////
 
 .header__inner_menu.active {
   background: $white;
@@ -194,8 +205,8 @@
   display: grid;
   gap: 24px;
   transform: translateX(0);
-  z-index: 4;
-
+  z-index: 2;
+  top: 152px;
 
   @include breakpointCustom(361px) {
     border-radius: 10px;

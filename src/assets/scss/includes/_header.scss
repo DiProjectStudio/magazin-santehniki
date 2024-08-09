@@ -16,7 +16,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: rgba(0, 0, 0, 0.4);
+      background: $gray-white-65;
       width: 100vw;
       height: 100vh;
       z-index: 2;
@@ -24,8 +24,6 @@
     }
 
     &_menu {
-      //top: 152px;
-      //transform: translateX(100%);
 
       @include breakpoint(lg) {
         display: grid;
@@ -204,9 +202,10 @@
   left: calc(50% - 180px);
   display: grid;
   gap: 24px;
-  transform: translateX(0);
+  transform: translateY(calc(40% + 152px));
   z-index: 2;
-  top: 152px;
+  //top: 152px;
+  transition: .3s ease;
 
   @include breakpointCustom(361px) {
     border-radius: 10px;

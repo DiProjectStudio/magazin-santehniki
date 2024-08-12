@@ -19,55 +19,59 @@ block main
                 .main__inner-image
                     +img('pages/main/main.jpg')
 
-                .main__inner_about
-                    h2.main__inner_about-title О компании
-                    .main__inner_about-items
-                        .main__inner_about-item
-                            .item-block
-                                .item-block__title 11 лет
-                                .item-block__description На российском рынке
-                            .item-block
-                                .item-block__title 1000+
-                                .item-block__description Довольных покупателей
-                            .item-block
-                                .item-block__title 95%
-                                .item-block__description Положительных отзывов
-                            .item-block
-                                .item-block__title 20
-                                .item-block__description Розничных магазинов, партнеров
-                        .main__inner_about-item
-                            +img('pages/main/about-1.jpg')
-                        .main__inner_about-item
-                            .item-title Дизайн и техноголии
-                            .item-description Продукция SSWW совмещает в себе приятный минималистичный дизайн и современные технологические решения, заботясь о наших клиентах. Все изделия выполнены из высококачественных материалов, которые прослужат вам долгие года.
-                        .main__inner_about-item
-                            .item-title Высокотехнологичное производство
-                            .item-description Роботизированное производство, минимизирующее брак. Каждое изделие проходит 3 этапа контроля качества. Компания имеет множество сертификатов контроля качества.
-                    .main__inner_about-history
-                        .history__slider.swiper
-                            .slider-arrows
-                                .slider-arrow--next
-                                    include ./assets/images/arrows/arrow-next.svg
-                                .slider-arrow--prev
-                                    include ./assets/images/arrows/arrow-prev.svg
-                            .swiper-wrapper
-                                .swiper-slide
-                                    .slide-image
-                                        +img('pages/main/about-2.jpg')
-                                    .slide-text База производства ванн и паровых кабин
-                                .swiper-slide
-                                    .slide-image
-                                        +img('pages/main/about-2.jpg')
-                                    .slide-text TEST1
-                                .swiper-slide
-                                    .slide-image
-                                        +img('pages/main/about-2.jpg')
-                                    .slide-text TEST2
-                        .history__text
-                            .history__text_title История бренда
+
+    section.about
+        .container
+            .about__inner
+                h2.about__title О компании
+                .about__items
+                    .about__item
+                        .about__item-block
+                            .about__item-block_title 11 лет
+                            .about__item-block_description На российском рынке
+                        .about__item-block
+                            .about__item-block_title 1000+
+                            .about__item-block_description Довольных покупателей
+                        .about__item-block
+                            .about__item-block_title 95%
+                            .about__item-block_description Положительных отзывов
+                        .about__item-block
+                            .about__item-block_title 20
+                            .about__item-block_description Розничных магазинов, партнеров
+                    .about__item
+                        +img('pages/main/about-1.jpg')
+                    .about__item
+                        .about__item-title Дизайн и техноголии
+                        .about__item-description Продукция SSWW совмещает в себе приятный минималистичный дизайн и современные технологические решения, заботясь о наших клиентах. Все изделия выполнены из высококачественных материалов, которые прослужат вам долгие года.
+                    .about__item
+                        .about__item-title Высокотехнологичное производство
+                        .about__item-description Роботизированное производство, минимизирующее брак. Каждое изделие проходит 3 этапа контроля качества. Компания имеет множество сертификатов контроля качества.
+                .about__history
+                    .about__history_slider.swiper
+                        .slider-arrows
+                            .slider-arrow--prev.disabled
+                                include ./assets/images/arrows/arrow-prev.svg
+                            .slider-arrow--next
+                                include ./assets/images/arrows/arrow-next.svg
+                        .swiper-wrapper
+                            .swiper-slide
+                                .swiper-slide__image
+                                    +img('pages/main/about-2.jpg')
+                                .swiper-slide__text База производства ванн и паровых кабин
+                            .swiper-slide
+                                .swiper-slide__image
+                                    +img('pages/main/about-2.jpg')
+                                .swiper-slide__text TEST1
+                            .swiper-slide
+                                .swiper-slide__image
+                                    +img('pages/main/about-2.jpg')
+                                .swiper-slide__text TEST2
+                    .about__history_text
+                        .history__text_title История бренда
+                        .history__text_blocks
                             .history__text_block
                                 p Основание:
-                                p История бренда SSWW берет свое начало в провинциальном местечке Дортмунд в Западной Германии, где в 1994 г. было запущено первое предприятие по производству классической мебели. На сегодняшний день в г. Дортмунд находится европейский офис и шоурум бренда SSWW.
+                                p История бренда SSWW берет свое начало в провинциальном местечке Дортмунд в Западной Германии, где в 1994 г. было запущено первое предприятие по производству классической мебели. На сегодняшний день в г. Дортмунд находится европейский офис и шоурум бренда SSWW.
                             .history__text_block
                                 p Развитие компании:
                                 p Дальнейшее успешное развитие компании потребовало существенного расширения и переноса производства, в результате чего были запущены еще 3 специализированные фабрики общей площадью более 330000 кв.м на территории крупнейшего высокотехнологического производственного парка сантехнических компаний в г. Фошань на юге Китая.

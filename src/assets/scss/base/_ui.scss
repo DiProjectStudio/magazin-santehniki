@@ -133,6 +133,7 @@ li {
   text-wrap: nowrap;
   transition: $transition;
   @include flexCenterCenter;
+  border: 1px solid $btn-default;
 
   @include breakpoint(lg) {
     font-size: 16px;

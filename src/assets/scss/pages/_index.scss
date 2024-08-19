@@ -1,6 +1,6 @@
 /////////////////////////////HERO//////////////////////////////////////
 
-#main {
+#main:has(section.main) {
   padding-bottom: 96px;
   @include breakpoint(md) {
     margin-top: -48px;
@@ -9,9 +9,15 @@
   @include breakpoint(lg) {
     margin-top: -68px;
   }
+
+  @include breakpoint(xl) {
+    margin-top: -78px;
+  }
 }
 
+
 .main {
+
 
   &__inner {
     @include breakpoint(md) {
@@ -60,7 +66,7 @@
 
   &-subtitle {
     color: var(--black, #000);
-    font-size: 16px;
+
     font-style: normal;
     font-weight: 500;
     line-height: 150%;
@@ -102,17 +108,37 @@
   gap: 24px;
   display: grid;
   border-radius: 10px;
+  margin-bottom: 103px;
+
+  @include breakpoint(md) {
+    margin-top: 64px;
+    margin-bottom: 135px;
+  }
 
   &__inner {
     display: grid;
     gap: 24px;
+    width: 100%;
+
+    @include breakpoint(md) {
+      gap: 48px;
+    }
   }
 
   &__items {
     display: grid;
     gap: 24px;
-  }
 
+    @include breakpoint(md) {
+      gap: 20px;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include breakpoint(lg) {
+      grid-template-columns: 4fr 5fr 3fr;
+      grid-template-rows: repeat(2, 218px);
+    }
+  }
 }
 
 .about__item {
@@ -122,6 +148,11 @@
     grid-template-columns: repeat(2, minmax(154px, 1fr));
     grid-template-rows: repeat(2, minmax(136px, 1fr));
     gap: 20px;
+
+    @include breakpoint(lg) {
+      grid-row: 1 / 3;
+      grid-column: 1 / 2;
+    }
 
     .about__item-block {
       background: #E5EAFC;
@@ -140,7 +171,7 @@
       }
 
       &_description {
-        font-size: 16px;
+
         align-self: flex-start;
       }
 
@@ -154,6 +185,11 @@
     width: 100%;
     height: auto;
     border-radius: 20px;
+
+    @include breakpoint(lg) {
+      grid-row: 1 / 3;
+      grid-column: 3 / 4;
+    }
   }
 
   &:nth-child(3), &:nth-child(4) {
@@ -162,6 +198,11 @@
     padding: 16px 20px;
     border-radius: 20px;
 
+
+    @include breakpoint(lg) {
+      height: 100%;
+    }
+
     .about__item-title {
       font-size: 20px;
       line-height: 120%;
@@ -169,7 +210,7 @@
     }
 
     .about__item-description {
-      font-size: 16px;
+
       line-height: 150%;
     }
   }
@@ -185,36 +226,75 @@
 
 .about__history {
   background: $gr;
-  border-radius: 0 0 10px 10px;
+  border-radius: 10px;
   overflow: hidden;
+  position: relative;
+
+  @include breakpoint(lg) {
+    display: grid;
+    grid-template-columns: 45% 53%;
+    height: 524px;
+  }
+
+  @include breakpoint(hd) {
+    grid-template-columns: 45% 53%;
+  }
+}
+
+.about__history_slider.swiper {
+  @include breakpoint(lg) {
+    grid-column: 1 / 2;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+  }
 }
 
 .swiper-slide {
-  &__text {
-    color: $black;
-    text-align: center;
-    font-size: 16px;
-    font-style: italic;
-    line-height: 150%;
-    width: 60%;
-    margin: 24px auto;
+  height: 220px;
+  margin-bottom: 68px;
+
+  @include breakpoint(md) {
+    height: 319px;
+    margin-bottom: 84px;
+  }
+
+  @include breakpoint(lg) {
+    height: 524px;
+    margin-bottom: 0;
   }
 
   &__image {
-    border-radius: 10px 10px 0 0;
-    height: 220px;
+    height: 100%;
   }
 }
 
 .slider-arrows {
   position: absolute;
-  top: 80%;
-  z-index: 2;
+  top: 240px;
   width: 100%;
+  z-index: 2;
+
+  @include breakpoint(md) {
+    top: 339px;
+  }
+
+  @include breakpoint(lg) {
+    top: 460px;
+    left: 278px;
+  }
+
+  @include breakpoint(hd) {
+    left: 365px;
+  }
 
   .slider-arrow--next {
     position: absolute;
-    right: 12px;
+    right: calc(50% - 38px);
+
+    @include breakpoint(md) {
+
+    }
 
     &.disabled {
       svg path {
@@ -223,9 +303,17 @@
     }
   }
 
+  .slider-arrow--next, .slider-arrow--prev {
+    cursor: pointer;
+  }
+
   .slider-arrow--prev {
     position: absolute;
-    left: 12px;
+    left: calc(50% - 38px);
+
+    @include breakpoint(md) {
+
+    }
 
     &.disabled {
       svg path {
@@ -238,6 +326,14 @@
 .about__history_text {
   color: $black;
   padding: 0 12px 24px 12px;
+
+  @include breakpoint(md) {
+    padding: 0 20px 20px 20px;
+  }
+
+  @include breakpoint(lg) {
+    padding: 24px 22px 24px 44px
+  }
 }
 
 .history__text_title {
@@ -245,27 +341,40 @@
   font-style: normal;
   line-height: 120%; /* 24px */
   margin-bottom: 32px;
+
+  @include breakpoint(md) {
+    margin-bottom: 12px;
+  }
 }
 
 .history__text_blocks {
   display: grid;
   gap: 24px;
+
+  @include breakpoint(md) {
+    gap: 12px;
+  }
 }
 
 .history__text_block {
   p {
     &:first-child {
-      font-size: 16px;
+
       font-style: italic;
       font-weight: 500;
       line-height: 150%; /* 24px */
       margin-bottom: 12px;
+
+      @include breakpoint(md) {
+        font-size: 18px;
+        margin-bottom: 8px;
+      }
     }
 
     &:last-child {
       overflow: hidden;
       text-overflow: ellipsis;
-      font-size: 16px;
+
       font-style: normal;
       line-height: 150%; /* 24px */
     }
@@ -273,5 +382,355 @@
 }
 
 
+///////////////////////////////////CATALOG///////////////////////////////////
+
+.catalog {
+  margin-bottom: 96px;
+
+  &__top {
+    @include flexCenterBetween;
+    margin-bottom: 31px;
+  }
+
+  &__card-items {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 153px;
+    gap: 20px;
+
+    @include breakpoint(md) {
+      grid-template-columns: repeat(4, 1fr);
+      grid-auto-rows: 1fr;
+    }
+
+    @include breakpoint(lg) {
+      grid-auto-rows: 274px;
+    }
+    @include breakpoint(hd) {
+      grid-auto-rows: 385px;
+    }
+  }
+}
+
+///////////////////////////////////STYLE///////////////////////////////
+
+.style {
+  color: $black;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  margin-bottom: 92px;
+
+  @include breakpoint(md) {
+    margin-bottom: 128px;
+  }
+
+  @include breakpoint(lg) {
+    margin-bottom: 192px;
+  }
+
+  &__title {
+    text-align: center;
+    font-size: 20px;
+    line-height: 130%; /* 26px */
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  &__subtitle {
+    text-align: center;
+
+    font-style: italic;
+    line-height: 150%; /* 24px */
+    margin-bottom: 24px;
+
+    @include breakpoint(md) {
+      max-width: 500px;
+      margin: 0 auto 80px;
+    }
+  }
+
+  & .slider-arrows {
+    display: none;
+    position: absolute;
+    top: 160px;
+    left: 0;
+
+    @include breakpoint(md) {
+      display: block;
+    }
+  }
+}
+
+
+//.style .swiper-slide {
+//  border-radius: 5px;
+//  overflow: hidden;
+//  isolation: isolate;
+//  height: 314px;
+//  //object-fit: cover;
+//}
+//
+//.swiper-slide {
+//  &.swiper-slide-active {
+//    height: 76px!important;
+//    margin-top: 64px;
+//    width: 100px!important;
+//  }
+//
+//  &.swiper-slide-next {
+//    height: 140px!important;
+//    width: 100px!important;
+//
+//  }
+//}
+//.swiper-slide-next + .swiper-slide {
+//  width: 222px!important;
+//  height: 212px!important;
+//}
+//.swiper-slide-next + .swiper-slide + .swiper-slide {
+//  height: 140px;
+//  width: 100px;
+//}
+//
+//.swiper-slide-next + .swiper-slide + .swiper-slide + .swiper-slide {
+//  height: 76px!important;
+//  margin-top: 64px;
+//  width: 100px!important;
+//}
+
+.style {
+  position: relative;
+
+  &__slider {
+    width: 100%;
+    transition: .4s ease;
+  }
+
+  .style__image {
+    //height: 75px;
+    //margin-top: auto;
+    border-radius: 5px;
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  .swiper-slide {
+    height: 314px;
+    display: flex;
+    flex-direction: column;
+    @include breakpoint(md) {
+      --width: calc((100vw - var(--variable) * 2) / 12 * 2 - 20px);
+      width: var(--width);
+      height: calc(var(--width) * 0.7);
+    }
+
+    @include breakpoint(hd) {
+      --width: calc((1600px - var(--variable) * 2) / 12 * 2 - 20px);
+      width: var(--width);
+    }
+
+    .style__image {
+      height: 100%;
+    }
+
+    &.swiper-slide-active {
+      --width: calc((100vw - var(--variable) * 2) / 12 * 4 - 20px);
+      width: var(--width);
+      height: calc(var(--width) * 0.9);
+      @include breakpoint(md) {
+
+      }
+
+      @include breakpoint(hd) {
+        --width: calc((1600px - var(--variable) * 2) / 12 * 4 - 20px);
+        width: var(--width);
+      }
+
+      .style__image {
+        height: 100%;
+      }
+    }
+
+    &.swiper-slide-prev,
+    &.swiper-slide-next {
+      height: calc(var(--width) * 1.4);
+      @include breakpoint(md) {
+
+      }
+
+      @include breakpoint(hd) {
+        --width: calc((1600px - var(--variable) * 2) / 12 * 2 - 20px);
+        width: var(--width);
+      }
+
+      .style__image {
+        height: 100%;
+      }
+    }
+  }
+}
+
+
+//////////////////////////////ADVANTAGES//////////////////
+
+.advantages {
+  margin-bottom: 96px;
+
+  &__title {
+    margin-bottom: 24px;
+    @include breakpoint(md) {
+      margin-bottom: 48px;
+    }
+  }
+
+  &__items {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: 296px;
+    gap: 12px;
+
+    @include breakpoint(md) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    @include breakpoint(lg) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+.advantages__item {
+  background: #E5EAFC;
+  border-radius: 10px;
+  padding: 16px 20px;
+
+  @include breakpoint(lg) {
+    padding: 24px;
+  }
+
+  @include breakpoint(hd) {
+    padding: 48px;
+  }
+
+  &_top {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+
+    &_title {
+      font-size: 20px;
+    }
+
+    &_number {
+
+      font-style: italic;
+    }
+  }
+
+  &_text {
+
+    line-height: 150%; /* 24px */
+  }
+
+  &:has(img) {
+    display: none;
+    padding: 0;
+
+    @include breakpoint(md) {
+      display: block;
+    }
+
+    @include breakpoint(lg) {
+      &:last-child {
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
+      }
+    }
+  }
+}
+
+
+///////////////////////////////////FAQ///////////////////////////////////
+
+.faq {
+  &__title {
+    margin-bottom: 24px;
+
+    @include breakpoint(md) {
+      margin-bottom: 48px;
+    }
+  }
+
+  &__main-block {
+    @include breakpoint(lg) {
+      display: grid;
+      grid-template-columns: 5fr 7fr;
+      gap: 20px;
+    }
+
+    &_image {
+      display: none;
+      border-radius: 10px;
+
+      @include breakpoint(lg) {
+        display: block;
+      }
+    }
+
+    &_items {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+  }
+
+
+  &__item {
+
+    line-height: 150%; /* 24px */
+    padding: 24px 16px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    border-radius: 10px;
+    border: 1px solid $black;
+    transition: $transition;
+
+    &_top {
+      @include flexCenterBetween;
+
+      &_title {
+        @include breakpoint(md) {
+          font-size: 20px;
+        }
+      }
+
+      &_close img {
+        width: 24px;
+        height: 24px;
+        cursor: pointer;
+        transition: $transition;
+      }
+    }
+
+    &_text {
+      display: none;
+    }
+
+    &.active {
+      .faq__item_top_close img {
+        transform: rotate(45deg);
+      }
+
+      .faq__item_text {
+        display: block;
+      }
+    }
+  }
+
+
+}
 
 

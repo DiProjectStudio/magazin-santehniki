@@ -1,0 +1,23 @@
+.categories {
+  padding-bottom: 108px;
+  h1 {
+    margin-top: 30px;
+  }
+
+  h2 {
+    margin-top: 48px;
+    margin-bottom: 24px;
+  }
+
+  p {
+    @include textLimit(1);
+    font-size: 16px;
+    max-width: 789px;
+  }
+
+  a.link {
+    margin-top: 24px;
+    font-size: 16px;
+    margin-left: 12px;
+  }
+}

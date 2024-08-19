@@ -6,7 +6,7 @@ block header
             .header__inner
                 a(href='/').header__inner_logo
                     +img('logo.svg')
-                .header__inner_overlay
+                .custom_overlay
                 .header__inner_menu
                     .header__inner_close-btn#closeBtn
                         +img('close.svg')
@@ -16,7 +16,7 @@ block header
                                 li.header__inner_navbar-item
                                     a(href='javascript:void(0)') О нас
                                 li.header__inner_navbar-item
-                                    a(href='javascript:void(0)') Каталог
+                                    a(href='categories.html') Каталог
                                 li.header__inner_navbar-item
                                     a(href='javascript:void(0)') Розничные магазины
                                 li.header__inner_navbar-item
@@ -25,7 +25,7 @@ block header
                                     a(href='javascript:void(0)') сервисный центр
                     .header__inner_call
                         .header__inner_call-text
-                            a(href='javascript:void(0)') Заказать звонок
+                            a(href='javascript:void(0)' data-src='#popup-request' data-fancybox).link Заказать звонок
                         .header__inner_call-numbers
                             a(href='tel:88005505072') 8(800)550-50-72
                             a(href='tel:79772811720') +7(977)281-17-20

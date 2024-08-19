@@ -1,0 +1,157 @@
+---
+title: 'Страница | Душевые кабины'
+bodyClass: categories-page
+---
+
+extends includes/_page
+include components/_breadcrumbs
+
+block main
+    +breadcrumbs('', 'Каталог', 'Душевые кабины')
+    section.products
+        .container
+            .products__inner
+                .header__inner_overlay
+                .products__top
+                    .products__top_button
+                        .products__top_button_image
+                            +img('catalog-button.svg')
+                        .products__top_button_text Каталог товаров
+                    .products__top_arrow
+                        +img('arrow-down.svg')
+                .products__categories
+                    -
+                        var categories = [
+                            {
+                                name: 'Смесители',
+                                subcategories: [
+                                    {name: 'Душевые кабины с паром'},
+                                    {name: 'Душевые кабины без пара'},
+
+                                ]
+                            },
+                            {name: 'Сауны', subcategories: []},
+                            {
+                                name: 'Душевые кабины',
+                                subcategories: [
+                                    {name: 'Душевые ограждения'},
+                                    {name: 'Двери в нишу'},
+                                    {name: 'Душевые стойки'},
+                                    {name: 'Душевые панели'}
+                                ]
+                            },
+                            {
+                                name: 'Ванны',
+                                subcategories: [
+                                    {name: 'С гидромассажа'},
+                                    {name: 'Без гидромассажа'},
+                                    {name: 'Акриловые отдельностоящие'},
+                                    {name: 'Компактные'},
+                                    {name: 'Из искуственного камня'},
+                                    {name: 'Серия H'},
+                                    {name: 'Серия J'}
+                                ]
+                            },
+                            {
+                                name: 'Мебель',
+                                subcategories: [
+                                    {name: 'Серия BW 62'},
+                                    {name: 'Серия BF 60'},
+                                    {name: 'Серия BF 82'},
+                                    {name: 'Серия BF 83'},
+                                    {name: 'Серия BF 87'},
+                                    {name: 'Серия BF 89'}
+                                ]
+                            },
+                            {
+                                name: 'Санфаянс',
+                                subcategories: [
+                                    {name: 'Унитазы'},
+                                    {name: 'Биде'},
+                                    {name: 'Писсуары'},
+                                    {name: 'Раковины'}
+                                ]
+                            },
+                            {
+                                name: 'Финские сауны',
+                                subcategories: [
+                                    {name: 'Унитазы'},
+                                    {name: 'Биде'},
+                                    {name: 'Писсуары'},
+                                    {name: 'Раковины'}
+                                ]
+                            },
+                            {
+                                name: 'Душевые ограждения',
+                                subcategories: [
+                                    {name: 'Унитазы'},
+                                    {name: 'Биде'},
+                                    {name: 'Писсуары'},
+                                    {name: 'Раковины'}
+                                ]
+                            },
+                            {
+                                name: 'Душевые стойки',
+                                subcategories: [
+                                    {name: 'Унитазы'},
+                                    {name: 'Биде'},
+                                    {name: 'Писсуары'},
+                                    {name: 'Раковины'}
+                                ]
+                            },
+                            {
+                                name: 'Запорная арматура',
+                                subcategories: [
+                                    {name: 'Донные клапаны'},
+                                    {name: 'Смывная арматура'},
+                                    {name: 'Запорная арматура'},
+                                    {name: 'Сифоны'}
+                                ]
+                            },
+                            {
+                                name: 'Аксессуары для ванны',
+                                subcategories: [
+                                    {name: 'Смесители'},
+                                    {name: 'Картриджи'},
+                                    {name: 'Форсунки'},
+                                    {name: 'Панели и пульты управления'}
+                                ]
+                            },
+                            {
+                                name: 'Запчасти',
+                                subcategories: [
+                                    {name: 'Смесители'},
+                                    {name: 'Картриджи'},
+                                    {name: 'Форсунки'},
+                                    {name: 'Панели и пульты управления'}
+                                ]
+                            }
+                        ]
+                    each category in categories
+                        .products__category
+                            .products__category_inner
+                                p= category.name
+                                if category.subcategories.length > 0
+                                    include ./assets/images/arrow-down.svg
+                            if category.subcategories.length > 0
+                                .products__subcategories
+                                    each subcategory in category.subcategories
+                                            .products__subcategory
+                                                p= subcategory.name
+
+                h1 Душевые кабины
+                .products__cards
+                    each n in [1, 2, 3, 4, 5, 6, 7, 8]
+                        include components/_product-card
+                .products__pagination
+                    .products__pagination_arrow-prev
+                        +img('arrow-prev.svg')
+                    .products__pagination_item.active 1
+                    .products__pagination_item 2
+                    .products__pagination_item 3
+                    .products__pagination_arrow-next
+                        +img('arrow-next.svg')
+
+
+
+

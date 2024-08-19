@@ -2,26 +2,16 @@
   padding-top: 12px;
   padding-bottom: 12px;
   position: sticky;
-  top: 12px;
+  top: 0;
   left: 0;
   right: 0;
-  z-index: 1;
+  z-index: 3;
   background-color: $white-80;
+  transition: transform 0.3s ease;
 
   &__inner {
     @include flexCenterBetween;
-    &_overlay {
-      position: absolute;
-      top: -24px;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: $gray-white-65;
-      width: 100vw;
-      height: 100vh;
-      z-index: 2;
-      display: none;
-    }
+
 
     &_menu {
       transition: .3s ease;
@@ -72,48 +62,6 @@
         gap: 48px;
       }
 
-      &-text {
-        color: $btn-default;
-        font-size: 14px;
-        font-style: normal;
-        font-weight: 600;
-        position: relative;
-
-        &:hover {
-          color: $btn-hover;
-        }
-
-        &:active {
-          color: $btn-click;
-        }
-
-        @include breakpoint(hd) {
-          font-size: 16px;
-        }
-
-        &::before {
-          content: '';
-          position: absolute;
-          width: 100%;
-          height: 1px;
-          background-color: #7390EB;
-          bottom: -2px;
-          left: 0;
-          transform-origin: right;
-          transform: scaleX(0);
-          transition: transform .3s ease-in-out;
-        }
-
-        &:hover::before {
-          transform-origin: left;
-          transform: scaleX(1);
-          background-color: $btn-hover;
-        }
-
-        &:active::before {
-          background-color: $btn-click;
-        }
-      }
 
       &-numbers {
         display: grid;
@@ -204,7 +152,8 @@
   display: grid;
   gap: 24px;
   transform: translateY(calc(40% + 152px));
-  z-index: 2;
+  z-index: 4;
+  isolation: isolate;
 
 
   @include breakpointCustom(361px) {
@@ -270,3 +219,4 @@
     }
   }
 }
+

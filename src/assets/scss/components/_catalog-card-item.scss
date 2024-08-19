@@ -1,0 +1,49 @@
+.catalog__card-item {
+  display: grid;
+  justify-items: center;
+  border-radius: 20px;
+  grid-auto-flow: row;
+  padding: 24px 29px 6px;
+  transition: $transition;
+
+  @include breakpoint(lg) {
+    padding: 40px 30px;
+    gap: 20px;
+  }
+
+  &:hover {
+    background: #E5EAFC;
+  }
+
+  &:active {
+    background: #E5EAFC;
+  }
+
+  &_image {
+    display: flex;
+    align-items: end;
+    justify-content: center;
+
+    img {
+      width: 45%;
+      height: auto;
+      object-fit: contain;
+
+      @include breakpoint(lg) {
+        width: 70%;
+      }
+
+      @include breakpoint(hd) {
+        width: 100%;
+      }
+    }
+  }
+
+  &_name {
+    color: $black;
+    font-size: 16px;
+    text-align: center;
+    align-self: center;
+  }
+
+}

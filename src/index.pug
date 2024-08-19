@@ -4,7 +4,11 @@ bodyClass: main-page
 //yandexMap: true
 ---
 
+
 extends includes/_page
+include components/_catalog-card-item
+
+
 
 block main
     section.main
@@ -14,7 +18,7 @@ block main
                     h1.main__inner_hero-title САнтехника SSWW — искусство роскоши в каждой детали
                     .main__inner_hero-subtitle Предоставляем к продаже сантехнику премиум сегмента от китайского производителя SSWW, оптом и в розницу на самых выгодных условиях.
                     .main__inner_hero-buttons
-                        a(href='javascript:void(0)').btn Стать партнером
+                        a(href='javascript:void(0)' data-src='#popup-request' data-fancybox).btn Стать партнером
                         a(href='javascript:void(0)').btn.btn--transparent скачать каталог
                 .main__inner-image
                     +img('pages/main/main.jpg')
@@ -47,25 +51,22 @@ block main
                         .about__item-title Высокотехнологичное производство
                         .about__item-description Роботизированное производство, минимизирующее брак. Каждое изделие проходит 3 этапа контроля качества. Компания имеет множество сертификатов контроля качества.
                 .about__history
+                    .slider-arrows
+                        .slider-arrow--prev.disabled
+                            include ./assets/images/arrows/arrow-prev.svg
+                        .slider-arrow--next
+                            include ./assets/images/arrows/arrow-next.svg
                     .about__history_slider.swiper
-                        .slider-arrows
-                            .slider-arrow--prev.disabled
-                                include ./assets/images/arrows/arrow-prev.svg
-                            .slider-arrow--next
-                                include ./assets/images/arrows/arrow-next.svg
                         .swiper-wrapper
                             .swiper-slide
                                 .swiper-slide__image
                                     +img('pages/main/about-2.jpg')
-                                .swiper-slide__text База производства ванн и паровых кабин
                             .swiper-slide
                                 .swiper-slide__image
                                     +img('pages/main/about-2.jpg')
-                                .swiper-slide__text TEST1
                             .swiper-slide
                                 .swiper-slide__image
                                     +img('pages/main/about-2.jpg')
-                                .swiper-slide__text TEST2
                     .about__history_text
                         .history__text_title История бренда
                         .history__text_blocks
@@ -75,3 +76,174 @@ block main
                             .history__text_block
                                 p Развитие компании:
                                 p Дальнейшее успешное развитие компании потребовало существенного расширения и переноса производства, в результате чего были запущены еще 3 специализированные фабрики общей площадью более 330000 кв.м на территории крупнейшего высокотехнологического производственного парка сантехнических компаний в г. Фошань на юге Китая.
+
+    section.catalog
+        .container
+            .catalog__inner
+                .catalog__top
+                    h2.catalog__top-title Каталог
+                    a(href='categories.html').catalog__top-goods.link Все товары
+                .catalog__card-items
+                    -
+                        var cardItems = [
+                            {name: 'Смесители'},
+                            {name: 'Душевые кабины'},
+                            {name: 'Душевые панели'},
+                            {name: 'Ванны'},
+                            {name: 'Мебель'},
+                            {name: 'Санфаянс'},
+                            {name: 'Финские сауны'},
+                            {name: 'Душевые ограждения'}
+                        ]
+                    each cardItem, index in cardItems
+                        +catalogCardItem(index, cardItem.name)
+
+    section.style
+        .container
+            .style__inner
+                h2.style__title
+                    | Для тех, кто ценит стиль
+                    br
+                    | и технологический прогресс
+                .style__subtitle Уже больше 30 лет ssww создают дизайнерскую сантехнику, воплощающие в себе лучшие традиции производства и самые современные технологии.
+                .slider-arrows
+                    .slider-arrow--prev
+                        include ./assets/images/arrows/arrow_big-prev.svg
+                    .slider-arrow--next
+                        include ./assets/images/arrows/arrow_big-next.svg
+            .style__slider.swiper
+
+                .swiper-wrapper
+                    .swiper-slide
+                        .style__image
+                            +img('pages/main/style-1.jpg')
+                    .swiper-slide
+                        .style__image
+                            +img('pages/main/style-2.jpg')
+                    .swiper-slide
+                        .style__image
+                            +img('pages/main/style-3.jpg')
+                    .swiper-slide
+                        .style__image
+                            +img('pages/main/style-4.jpg')
+                    .swiper-slide
+                        .style__image
+                            +img('pages/main/style-5.jpg')
+                    .swiper-slide
+                        .style__image
+                            +img('pages/main/style-1.jpg')
+                    .swiper-slide
+                        .style__image
+                            +img('pages/main/style-2.jpg')
+                    .swiper-slide
+                        .style__image
+                            +img('pages/main/style-3.jpg')
+                    .swiper-slide
+                        .style__image
+                            +img('pages/main/style-4.jpg')
+                    .swiper-slide
+                        .style__image
+                            +img('pages/main/style-5.jpg')
+                    .swiper-slide
+                        .style__image
+                            +img('pages/main/style-1.jpg')
+                    .swiper-slide
+                        .style__image
+                            +img('pages/main/style-2.jpg')
+                    .swiper-slide
+                        .style__image
+                            +img('pages/main/style-3.jpg')
+                    .swiper-slide
+                        .style__image
+                            +img('pages/main/style-4.jpg')
+                    .swiper-slide
+                        .style__image
+                            +img('pages/main/style-5.jpg')
+                    .swiper-slide
+                        .style__image
+                            +img('pages/main/style-1.jpg')
+                    .swiper-slide
+                        .style__image
+                            +img('pages/main/style-2.jpg')
+                    .swiper-slide
+                        .style__image
+                            +img('pages/main/style-3.jpg')
+                    .swiper-slide
+                        .style__image
+                            +img('pages/main/style-4.jpg')
+                    .swiper-slide
+                        .style__image
+                            +img('pages/main/style-5.jpg')
+
+    section.advantages
+        .container
+            .advantages__inner
+                h2.advantages__title Преимущества работы с нами
+                .advantages__items
+                    .advantages__item
+                        .advantages__item_top
+                            .advantages__item_top_title Экспертность
+                            .advantages__item_top_number (01)
+                        .advantages__item_text Предоставляем профессиональную консультацию по выбору оборудования. Обладаем 10-летним опытом в области подбора и продажи инженерного оборудования и поможем вам определить оптимальные решения, учитывая особенности объекта, бюджет и требования.
+
+                    .advantages__item.bg-grey-white-65
+                        .advantages__item_top
+                            .advantages__item_top_title Прямые дилерские контракты
+                            .advantages__item_top_number (02)
+                        .advantages__item_text Предлагаем широкий выбор высококачественного оборудования для отопления и водоснабжения. Работаем с ведущими производителями и предлагаем современные и надежные товары.
+
+                    .advantages__item
+                        +img('pages/main/advantages-1.jpg')
+
+                    .advantages__item
+                        .advantages__item_top
+                            .advantages__item_top_title Конкурентные цены
+                            .advantages__item_top_number (03)
+                        .advantages__item_text Благодаря профессиональным связям с производителями и оптимальной логистике, мы предлагаем конкурентные цены на оборудование. Понимаем экономическую значимость проектов и стремимся предложить наилучшую цену при сохранении высокого качества.
+
+                    .advantages__item.bg-grey-white-65
+                        .advantages__item_top
+                            .advantages__item_top_title Гарантированные и своевременные поставки
+                            .advantages__item_top_number (04)
+                        .advantages__item_text Предлагаем широкий выбор высококачественного оборудования для отопления и водоснабжения. Работаем с ведущими производителями и предлагаем современные и надежные товары.
+
+                    .advantages__item
+                        +img('pages/main/advantages-2.jpg')
+    section.faq
+        .container
+            .faq__inner
+                h2.faq__title Часто задаваемы вопросы
+                .faq__main-block
+                    .faq__main-block_image
+                        +img('pages/main/faq-1.jpg')
+                    .faq__main-block_items
+                        .faq__item
+                            .faq__item_top
+                                .faq__item_top_title Как осуществляется оплата?
+                                .faq__item_top_close
+                                    +img('faq_close.svg')
+                            .faq__item_text
+                                p Заказ нужно оплатить в течение 30 минут после оформления. На почте — наличными. У курьера — наличными или картой. В пунктах выдачи и постаматах — наличными или картой.
+                        .faq__item
+                            .faq__item_top
+                                .faq__item_top_title Как осуществляется оплата?
+                                .faq__item_top_close
+                                    +img('faq_close.svg')
+                            .faq__item_text Заказ нужно оплатить в течение 30 минут после оформления. На почте — наличными. У курьера — наличными или картой. В пунктах выдачи и постаматах — наличными или картой.
+                        .faq__item
+                            .faq__item_top
+                                .faq__item_top_title Как осуществляется оплата?
+                                .faq__item_top_close
+                                    +img('faq_close.svg')
+                            .faq__item_text Заказ нужно оплатить в течение 30 минут после оформления. На почте — наличными. У курьера — наличными или картой. В пунктах выдачи и постаматах — наличными или картой.
+                        .faq__item
+                            .faq__item_top
+                                .faq__item_top_title Как осуществляется оплата?
+                                .faq__item_top_close
+                                    +img('faq_close.svg')
+                            .faq__item_text Заказ нужно оплатить в течение 30 минут после оформления. На почте — наличными. У курьера — наличными или картой. В пунктах выдачи и постаматах — наличными или картой.
+
+
+
+
+

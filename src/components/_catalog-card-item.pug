@@ -1,0 +1,5 @@
+mixin catalogCardItem(index, name)
+    a(href='products.html').catalog__card-item
+        .catalog__card-item_image
+            +img(`categories/catalog-${index + 1}.png`)
+        .catalog__card-item_name= name

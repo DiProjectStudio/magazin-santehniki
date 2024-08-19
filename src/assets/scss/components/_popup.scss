@@ -1,3 +1,100 @@
 .popup {
   display: none;
+  border-radius: 20px;
+  background: #E5EAFC;
+  padding: 24px;
+  max-width: 446px;
+  width: 100%;
+
+  @include breakpoint(lg) {
+    width: 854px;
+    max-width: unset;
+    padding: 78px;
+  }
+
+  &__inner {
+    @include breakpoint(lg) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+
+  &__request-form {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  &__title {
+    font-size: 20px;
+    margin-bottom: 24px;
+  }
+
+  &__image {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+
+    @include breakpoint(lg) {
+      display: block;
+    }
+  }
+
+  &__inputs {
+    margin-bottom: 16px;
+  }
+
+  button.btn {
+    justify-self: center;
+
+    @include breakpoint(lg) {
+      justify-self: unset;
+    }
+  }
+
+  &__checkbox {
+    margin-bottom: 24px;
+
+    label {
+      font-size: 14px;
+      line-height: 120%; /* 16.8px */
+    }
+  }
+}
+
+.fancybox__slide {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.carousel__button {
+  background: $white;
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+
+  svg {
+    stroke: $prime;
+    width: 15px;
+    height: 15px;
+    stroke-width: 4px;
+    filter: none;
+  }
+}
+
+.fancybox__content .carousel__button.is-close {
+  top: 24px;
+  right: 24px;
+
+  @include breakpoint(lg) {
+    top: 16px;
+    right: 32px;
+  }
+}
+
+.fancybox__backdrop {
+  background: $gray-white-65;
+  backdrop-filter: blur(7.5px);
 }

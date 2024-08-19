@@ -20,13 +20,19 @@ body b {
 }
 
 ::-webkit-scrollbar {
-  width: 0;
-  height: 0;
+  //width: 0;
+  //height: 0;
+  //width: 6px;
+
+
+  //height: 140px;
 
   @include breakpoint(lg) {
-    width: 8px;
-    height: 10px;
+    //width: 8px;
+    //height: 10px;
   }
+
+
 }
 
 ::-webkit-scrollbar-track {
@@ -34,6 +40,11 @@ body b {
 }
 
 ::-webkit-scrollbar-thumb {
+
+}
+
+::-webkit-scrollbar-button {
+  display: none;
 }
 
 
@@ -92,7 +103,7 @@ header.bg-overlay::before {
 
 .overlay {
   position: fixed;
-  top: 0;
+  top: -10px;
   left: 0;
   width: 100%;
   height: 100%;
@@ -109,10 +120,112 @@ li {
   list-style: none;
 }
 
+.custom_overlay {
+  position: absolute;
+  top: -50px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: $gray-white-65;
+  backdrop-filter: blur(7.5px);
+  width: 100vw;
+  height: 120vh;
+  z-index: 0;
+  display: none;
+  isolation: isolate;
+}
+
 /////////////////////
 /// INPUTS
 /////////////////////
+.checkbox {
+  position: relative;
 
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  label {
+    display: block;
+    position: relative;
+    padding-left: 28px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  span {
+    position: absolute;
+    top: 5px;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: white;
+    border: 1px solid $grey;
+    border-radius: 4px;
+
+    &:after {
+      content: "";
+      position: absolute;
+      display: none;
+      left: 7px;
+      top: 2px;
+      width: 5px;
+      height: 12px;
+      border: solid $grey;
+      border-width: 0 1px 1px 0;
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(39deg);
+    }
+  }
+
+  & input:checked ~ span {
+    background-color: $white;
+    border: 1px solid $grey;
+
+    &:after {
+      display: block;
+    }
+  }
+}
+
+.input {
+  input {
+    border-radius: 10px;
+    border: 1px solid $grey;
+    background: $white;
+    color: $black;
+    font-size: 16px;
+    padding: 12px 16px;
+    @include flexCenterCenter;
+    outline: none;
+    width: 100%;
+
+    &::placeholder {
+      color: $grey;
+    }
+  }
+
+  & ~ .input {
+    margin-top: 12px;
+  }
+}
+
+input:focus,
+input:focus-visible,
+input:focus::after,
+input:focus-visible::after {
+  outline: none !important;
+  box-shadow: none !important;
+}
 
 
 /////////////////////
@@ -153,6 +266,7 @@ li {
     background: transparent;
     border: 1px solid $btn-default;
     color: $btn-default;
+
     &:hover {
       border: 1px solid $btn-hover;
       color: $btn-hover;
@@ -173,6 +287,49 @@ a {
   display: inline-block;
 }
 
+.link {
+  color: $btn-default;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  position: relative;
+
+  &:hover {
+    color: $btn-hover;
+  }
+
+  &:active {
+    color: $btn-click;
+  }
+
+  @include breakpoint(hd) {
+    font-size: 16px;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background-color: #7390EB;
+    bottom: -2px;
+    left: 0;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .3s ease-in-out;
+  }
+
+  &:hover::before {
+    transform-origin: left;
+    transform: scaleX(1);
+    background-color: $btn-hover;
+  }
+
+  &:active::before {
+    background-color: $btn-click;
+  }
+}
+
 
 /////////////////////
 /// ICONS
@@ -182,6 +339,7 @@ a {
   &:hover svg path {
     fill: $btn-hover;
   }
+
   &:active svg path {
     fill: $btn-click;
   }
@@ -191,6 +349,9 @@ a {
 /// OTHERS
 /////////////////////
 
+.bg-grey-white-65 {
+  background: $gray-white-65 !important;
+}
 
 /////////////////////
 /// CARDS & CATALOG
@@ -234,7 +395,6 @@ h2 {
     font-size: 28px;
   }
 }
-
 
 
 /////////////////////

@@ -8,13 +8,14 @@
   z-index: 3;
   background-color: $white-80;
   transition: transform 0.3s ease;
+  isolation: isolate;
 
   &__inner {
     @include flexCenterBetween;
 
-
     &_menu {
       transition: .3s ease;
+      isolation: isolate;
 
       @include breakpoint(lg) {
         display: grid;

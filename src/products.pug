@@ -11,7 +11,6 @@ block main
     section.products
         .container
             .products__inner
-                .header__inner_overlay
                 .products__top
                     .products__top_button
                         .products__top_button_image
@@ -19,6 +18,9 @@ block main
                         .products__top_button_text Каталог товаров
                     .products__top_arrow
                         +img('arrow-down.svg')
+
+                    .close-button#closeBtn
+                        +img('x.svg')
                 .products__categories
                     -
                         var categories = [
@@ -136,8 +138,8 @@ block main
                             if category.subcategories.length > 0
                                 .products__subcategories
                                     each subcategory in category.subcategories
-                                            .products__subcategory
-                                                p= subcategory.name
+                                        .products__subcategory
+                                            a(href='javascript:void(0)')= subcategory.name
 
                 h1 Душевые кабины
                 .products__cards

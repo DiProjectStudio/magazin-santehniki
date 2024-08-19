@@ -25,7 +25,9 @@
     @include breakpoint(md) {
       padding-top: 30px;
       padding-left: 12px;
-      top: -76px;
+      top: -94px;
+      background: transparent;
+      max-width: 100%;
     }
 
 
@@ -44,6 +46,8 @@
         display: none;
       }
     }
+
+
   }
 
   &__cards {
@@ -95,25 +99,48 @@
     z-index: 3;
     display: none;
     background: $white;
-    padding: 12px 16px;
-    width: 100%;
-    max-width: 342px;
+    padding: 0 6px 24px;
     border-radius: 0 0 6px 6px;
     isolation: isolate;
     overflow-y: auto;
     max-height: 700px;
+    width: 100%;
+    max-width: 342px;
+
 
     @include breakpoint(md) {
-      padding: 12px 22px;
       top: -22px;
+      padding-left: 0;
+      padding-right: 0;
+      padding-bottom: 0;
+      background: #E5EAFC;
+      border-radius: 10px;
+      max-width: calc(50% + 22px);
+      //max-width: 100%;
     }
   }
 
   &__category {
-    padding: 12px 0;
+    padding: 12px 16px;
+    width: 100%;
+    background: $white;
+    max-width: 338px;
+
+    @include breakpoint(md) {
+      //max-width: calc(50% + 22px);
+      max-width: 100%;
+      &:first-child {
+        padding-top: 36px;
+        border-top-left-radius: 10px;
+      }
+
+      &:last-child {
+        padding-bottom: 36px;
+      }
+    }
 
     &:not(:last-child) {
-      border-bottom: 1px solid #DADADA;
+      border-bottom: 1px solid $gray-white-65;
     }
 
 
@@ -128,11 +155,45 @@
     }
 
     &.active {
+
+      @include breakpoint(md) {
+        &::before {
+          content: '';
+          width: 2px;
+          height: 42px;
+          background: $prime;
+          display: inline-block;
+          position: absolute;
+          left: -22px;
+          top: 0;
+        }
+      }
+
       .products__subcategories {
         display: grid;
         padding-top: 26px;
         gap: 26px;
         padding-left: 14px;
+
+        @include breakpoint(md) {
+          position: absolute;
+          gap: 4px;
+          top: 0;
+          left: 50%;
+          padding-top: 12px;
+          padding-left: 32px;
+          width: calc(50% - 22px);
+        }
+
+        .products__subcategory {
+          @include breakpoint(md) {
+            padding: 12px 16px;
+            white-space: nowrap;
+            background: $white;
+            width: 100%;
+            border-radius: 4px;
+          }
+        }
       }
 
       .products__category_inner {
@@ -144,7 +205,7 @@
           transform: rotate(180deg);
 
           @include breakpoint(md) {
-            transform: rotate(-90deg);
+            transform: rotate(-270deg);
           }
 
           path {
@@ -157,6 +218,27 @@
 
   &__subcategories {
     display: none;
+
+    @include breakpoint(md) {
+
+    }
+  }
+}
+
+.close-button {
+  //display: flex;
+  width: 26px;
+  height: 26px;
+  padding: 4px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  background: $prime;
+  display: none;
+
+  img {
+    width: 10px;
+    height: 10px;
   }
 }
 
@@ -176,7 +258,18 @@
     .products__categories {
       display: grid;
     }
+
+    @include breakpoint(md) {
+      .close-button {
+        display: flex;
+        position: absolute;
+        top: -41px;
+        right: 1px;
+      }
+    }
+
   }
 }
+
 
 

@@ -239,89 +239,91 @@
   @include breakpoint(hd) {
     grid-template-columns: 45% 53%;
   }
-}
 
-.about__history_slider.swiper {
-  @include breakpoint(lg) {
-    grid-column: 1 / 2;
+  .slider-arrows {
+    position: absolute;
+    top: 240px;
     width: 100%;
-    height: 100%;
     z-index: 2;
-  }
-}
-
-.swiper-slide {
-  height: 220px;
-  margin-bottom: 68px;
-
-  @include breakpoint(md) {
-    height: 319px;
-    margin-bottom: 84px;
-  }
-
-  @include breakpoint(lg) {
-    height: 524px;
-    margin-bottom: 0;
-  }
-
-  &__image {
-    height: 100%;
-  }
-}
-
-.slider-arrows {
-  position: absolute;
-  top: 240px;
-  width: 100%;
-  z-index: 2;
-
-  @include breakpoint(md) {
-    top: 339px;
-  }
-
-  @include breakpoint(lg) {
-    top: 460px;
-    left: 278px;
-  }
-
-  @include breakpoint(hd) {
-    left: 365px;
-  }
-
-  .slider-arrow--next {
-    position: absolute;
-    right: calc(50% - 38px);
 
     @include breakpoint(md) {
-
+      top: 339px;
     }
 
-    &.disabled {
-      svg path {
-        fill: $grey;
+    @include breakpoint(lg) {
+      top: 460px;
+      left: 278px;
+    }
+
+    @include breakpoint(hd) {
+      left: 365px;
+    }
+
+    .slider-arrow--next {
+      position: absolute;
+      right: calc(50% - 38px);
+
+      @include breakpoint(md) {
+
+      }
+
+      &.disabled {
+        svg path {
+          fill: $grey;
+        }
+      }
+    }
+
+    .slider-arrow--next, .slider-arrow--prev {
+      cursor: pointer;
+    }
+
+    .slider-arrow--prev {
+      position: absolute;
+      left: calc(50% - 38px);
+
+      @include breakpoint(md) {
+
+      }
+
+      &.disabled {
+        svg path {
+          fill: $grey;
+        }
       }
     }
   }
 
-  .slider-arrow--next, .slider-arrow--prev {
-    cursor: pointer;
-  }
-
-  .slider-arrow--prev {
-    position: absolute;
-    left: calc(50% - 38px);
-
-    @include breakpoint(md) {
-
+  &_slider.swiper {
+    @include breakpoint(lg) {
+      grid-column: 1 / 2;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
     }
 
-    &.disabled {
-      svg path {
-        fill: $grey;
+    .swiper-slide {
+      height: 220px;
+      margin-bottom: 68px;
+
+      @include breakpoint(md) {
+        height: 319px;
+        margin-bottom: 84px;
+      }
+
+      @include breakpoint(lg) {
+        height: 524px;
+        margin-bottom: 0;
+      }
+
+      &__image {
+        height: 100%;
       }
     }
   }
+
 }
+
 
 .about__history_text {
   color: $black;

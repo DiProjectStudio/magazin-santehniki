@@ -3,27 +3,54 @@
   padding-bottom: 96px;
 
   &__inner {
+    @include breakpoint(lg) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      height: 1330px;
+    }
+  }
 
+  &__js-left {
+    @include breakpoint(lg) {
+      display: grid;
+      gap: 32px;
+    }
+  }
+
+  &__js-right {
+    @include breakpoint(lg) {
+      position: sticky;
+      top: 152px;
+      left: 50%;
+      height: fit-content;
+    }
   }
 
   &__images {
     @include breakpoint(md) {
       display: grid;
       grid-template-columns: minmax(0, 2fr) minmax(0, 10fr);
-      grid-auto-rows: minmax(0, 424px);
+      --swiper-height: calc((100vw - 2 * var(--container)) * 0.6);
+      grid-auto-rows: minmax(0, var(--swiper-height));
       gap: 20px;
+      margin-bottom: 48px;
+    }
+
+    @include breakpoint(lg) {
+      --swiper-height: calc(((100vw / 2) - 2 * var(--container)) * 0.83);
     }
   }
 
   .product__images_thumbs.swiper {
     display: none;
+    width: 100%;
+
     @include breakpoint(md) {
       display: block;
-
     }
 
     .swiper-wrapper {
-
       .swiper-slide {
         display: flex;
         width: 100%;
@@ -39,8 +66,8 @@
         }
 
         img {
+          width: 70%;
           height: auto;
-          scale: 0.7;
         }
       }
     }
@@ -49,17 +76,24 @@
 
   .product__images_main.swiper {
     width: 100%;
-    height: 100%;
     border-radius: 20px;
     border: 2px solid $grey;
     position: relative;
-    padding-top: 52px;
-    padding-bottom: 52px;
+    @include flexCenterCenter;
+
+    @include breakpointMax(md) {
+
+      --swiper-height: calc((100vw - 2 * var(--container)) * 0.9);
+      height: var(--swiper-height);
+    }
 
 
     .slider-arrows {
       position: absolute;
       top: calc(50% - 8px);
+      z-index: 2;
+      width: 100%;
+      height: 100%;
 
       @include breakpoint(md) {
         top: calc(50% - 17px);
@@ -76,31 +110,34 @@
       }
 
       .slider-arrow--next, .slider-arrow--prev {
-        svg {
-          width: 16px;
-          height: 16px;
+        width: 19px;
+        height: 19px;
 
-          @include breakpoint(md) {
-            width: 34px;
-            height: 34px;
-          }
+        @include breakpoint(md) {
+          width: 37px;
+          height: 37px;
+        }
+
+        svg {
+          width: 100%;
+          height: 100%;
         }
       }
     }
 
     .swiper-wrapper {
+      align-items: center;
+
       .swiper-slide {
         @include flexCenterCenter;
         margin-bottom: 0;
 
         img {
-          width: 135px;
+          width: 41%;
           height: auto;
         }
       }
     }
-
-
   }
 }
 
@@ -127,6 +164,7 @@
 
     display: grid;
     gap: 4px;
+    max-width: 750px;
 
     .extended_item {
       @include flexCenterBetween;
@@ -141,8 +179,13 @@
       }
 
       &__value {
-        flex: 0 0 350px;
-        text-align: left;
+        @include breakpoint(md) {
+          flex: 0 0 350px;
+        }
+
+        @include breakpoint(lg) {
+          flex: 0 0 250px;
+        }
       }
     }
   }
@@ -158,6 +201,7 @@
       align-items: center;
       gap: 40px;
     }
+
 
     a {
       width: 100%;
@@ -178,6 +222,15 @@
     display: flex;
     gap: 16px;
     overflow-x: auto;
+
+    @include breakpoint(md) {
+      justify-content: space-between;
+    }
+
+    @include breakpoint(lg) {
+      justify-content: normal;
+      gap: 24px;
+    }
 
     .tabs__button {
       text-wrap: nowrap;
@@ -240,6 +293,10 @@
   h2 {
     margin-top: 32px;
     margin-bottom: 24px;
+
+    @include breakpoint(lg) {
+      margin-top: 48px;
+    }
   }
 
   .additional__items {

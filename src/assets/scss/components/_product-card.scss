@@ -13,6 +13,7 @@
     @include flexCenterCenter;
     margin-bottom: 6px;
     padding: 24px 0;
+
     @include breakpoint(md) {
       padding: 36px 0;
     }

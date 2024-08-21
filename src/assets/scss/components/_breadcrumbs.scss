@@ -1,5 +1,6 @@
 .breadcrumbs {
   padding-top: 36px;
+
 }
 
 .breadcrumbs a {
@@ -9,7 +10,9 @@
 .breadcrumbs-wrapper {
   display: flex;
   align-items: center;
-  gap: 30px;
+  flex-wrap: wrap;
+  column-gap: 24px;
+  row-gap: 15px;
   //overflow-x: auto;
 }
 

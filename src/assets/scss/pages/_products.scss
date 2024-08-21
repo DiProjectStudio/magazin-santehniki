@@ -1,6 +1,8 @@
 .products {
   padding-bottom: 96px;
 
+
+
   h1 {
     margin-top: 84px;
     margin-bottom: 20px;
@@ -30,6 +32,11 @@
       max-width: 100%;
     }
 
+    @include breakpoint(lg) {
+      position: relative;
+      top: unset;
+    }
+
 
     &_button {
       @include flexAlignCenter;
@@ -52,8 +59,15 @@
 
   &__cards {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 154px);
+    grid-auto-rows: 258px;
     gap: 20px;
+    justify-content: center;
+
+    @include breakpoint(md) {
+      grid-template-columns: repeat(3, 222px);
+      grid-auto-rows: 340px;
+    }
   }
 
   &__pagination {

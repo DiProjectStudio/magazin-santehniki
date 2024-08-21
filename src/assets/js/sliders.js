@@ -1,6 +1,4 @@
 $(document).ready(function () {
-
-
     const slider = new Swiper(".about__history_slider.swiper", {
         slidesPerView: 1,
         navigation: {
@@ -27,8 +25,8 @@ $(document).ready(function () {
             }
         }
     });
+
     const slides = document.querySelectorAll('.style .swiper-slide');
-    console.log('slides.length: ', slides.length)
     const sliderStyle = new Swiper('.style__slider.swiper', {
 
         slidesPerView: 1,
@@ -56,6 +54,26 @@ $(document).ready(function () {
             },
         },
         // infinite: true
+    });
+
+    const thumbs = new Swiper('.product__images_thumbs.swiper', {
+        slidesPerView: 4,
+        direction: 'vertical',
+        spaceBetween: 12,
+        mousewheel: true
+    })
+
+
+    const productImageSlider = new Swiper('.product__images_main.swiper', {
+        slidesPerView: 1,
+        navigation: {
+            nextEl: '.product .slider-arrow--next',
+            prevEl: '.product .slider-arrow--prev',
+        },
+        loop: true,
+        thumbs: {
+            swiper: thumbs
+        }
     });
 });
 

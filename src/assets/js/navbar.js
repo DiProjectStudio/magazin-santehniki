@@ -25,7 +25,7 @@ function navbar() {
             });
         }
     });
-    
+
     closeBtn.addEventListener('click', () => {
         navMenu.classList.remove('active');
         toggleOverlay(false);

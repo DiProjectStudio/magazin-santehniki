@@ -13,36 +13,39 @@ function categoriesMenuAction() {
     const productsInnerElement = document.querySelector('.products__inner');
     const categoryElements = document.querySelectorAll('.products__category');
 
-    categoriesActionButton.addEventListener('click', (e) => {
-        restoreMaxWidth();
-        e.stopPropagation();
-        categoryElements.forEach(element => {
-            element.classList.remove('active');
-            const subcategories = element.querySelector('.products__subcategories');
-            if (subcategories) {
-                subcategories.style.display = 'none';
-            }
-        });
-
-        productsInnerElement.classList.toggle('active');
-        if (productsInnerElement.classList.contains('active')) {
-            toggleOverlay(true);
-            disableScroll();
-        } else {
-            toggleOverlay(false);
-            enableScroll();
-        }
-
-        if (productsInnerElement.classList.contains('active')) {
-            document.addEventListener('click', function (event) {
-                if (!event.composedPath().includes(productsInnerElement)) {
-                    productsInnerElement.classList.remove('active');
-                    toggleOverlay(false);
-                    enableScroll();
-                }
-            });
-        }
-    });
+    // categoriesActionButton.addEventListener('click', (e) => {
+    //     if (window.innerWidth >=744) {
+    //         restoreMaxWidth();
+    //     }
+    //
+    //     e.stopPropagation();
+    //     categoryElements.forEach(element => {
+    //         element.classList.remove('active');
+    //         const subcategories = element.querySelector('.products__subcategories');
+    //         if (subcategories) {
+    //             subcategories.style.display = 'none';
+    //         }
+    //     });
+    //
+    //     productsInnerElement.classList.toggle('active');
+    //     if (productsInnerElement.classList.contains('active')) {
+    //         toggleOverlay(true);
+    //         disableScroll();
+    //     } else {
+    //         toggleOverlay(false);
+    //         enableScroll();
+    //     }
+    //
+    //     if (productsInnerElement.classList.contains('active')) {
+    //         document.addEventListener('click', function (event) {
+    //             if (!event.composedPath().includes(productsInnerElement)) {
+    //                 productsInnerElement.classList.remove('active');
+    //                 toggleOverlay(false);
+    //                 enableScroll();
+    //             }
+    //         });
+    //     }
+    // });
 }
 
 function categoriesAction() {

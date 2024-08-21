@@ -1,0 +1,141 @@
+---
+title: 'Страница | Душевые кабины'
+bodyClass: categories-page
+---
+
+extends includes/_page
+include components/_breadcrumbs
+
+block main
+    +breadcrumbs('', 'Каталог', 'Душевые кабины', 'Душевые кабины с паром', 'Душевая кабина W0913H')
+    section.product
+        .container
+            .product__inner
+                .product__title
+                    h1 Душевая кабина BU615 L
+                    .product__title_article Арт. SSWW W0913H
+                    .product__title_type Стандартная комплектация
+                .product__images
+                    .product__images_thumbs.swiper
+                        .swiper-wrapper
+                            .swiper-slide
+                                +img('pages/product/1_big.jpg')
+                            .swiper-slide
+                                +img('pages/product/1_big.jpg')
+                            .swiper-slide
+                                +img('pages/product/1_big.jpg')
+                            .swiper-slide
+                                +img('pages/product/1_big.jpg')
+                            .swiper-slide
+                                +img('pages/product/1_big.jpg')
+                    .product__images_main.swiper
+                        .slider-arrows
+                            .slider-arrow--next
+                                include ../src/assets/images/arrow-circle-right.svg
+                            .slider-arrow--prev
+                                include ../src/assets/images/arrow-circle-left.svg
+                        .swiper-wrapper
+                            .swiper-slide(data-fancybox data-src='assets/images/pages/product/1_big.jpg')
+                                +img('pages/product/1_big.jpg')
+                            .swiper-slide(data-fancybox data-src='assets/images/pages/product/1_big.jpg')
+                                +img('pages/product/1_big.jpg')
+                            .swiper-slide(data-fancybox data-src='assets/images/pages/product/1_big.jpg')
+                                +img('pages/product/1_big.jpg')
+                            .swiper-slide(data-fancybox data-src='assets/images/pages/product/1_big.jpg')
+                                +img('pages/product/1_big.jpg')
+                            .swiper-slide(data-fancybox data-src='assets/images/pages/product/1_big.jpg')
+                                +img('pages/product/1_big.jpg')
+                .product__specifications
+                    .sku.sku--colors
+                        .sku__title Цвет
+                        .sku__checkboxes
+                            input(type='radio' name='color' value='white' id='white' checked)
+                            label(for='white').label--white
+                            input(type='radio' name='color' value='black' id='black')
+                            label(for='black').label--black
+                    .sku.sku--buttons
+                        .sku__title Толщина стекл
+                        .sku__checkboxes
+                            input(type='radio' name='thickness' value='standard' id='standard' checked)
+                            label(for='standard') Стандартное 8 мм
+                            input(type='radio' name='thickness' value='sick' id='sick')
+                            label(for='sick') Тонкое 6 мм
+                    .product__specifications_extended
+                        .product__specifications_extended_text Характеристики
+                        .product__specifications_extended_items
+                            -
+                                var specifications = [
+                                    {name: 'Тип', description: 'Паровая кабина, четверть круга'},
+                                    {name: 'Размер', description: '170 X 85 см'},
+                                    {name: 'Высота', description: '220 см'},
+                                    {name: 'Разворот', description: 'Левая, прямоугольная'},
+                                    {name: 'Наличие крышки', description: 'Есть крышка'},
+                                    {name: 'Панель управления', description: 'Электронная'},
+                                    {name: 'Толщина стекла', description: '8 мм'},
+                                    {name: 'Отделка стекла', description: 'Глянец'},
+                                    {name: 'Звуковое оборудование', description: 'FM радио'},
+                                ]
+                            each specification in specifications
+                                .extended_item
+                                    span.extended_item__label= specification.name
+                                    span.extended_item__dots
+                                    span.extended_item__value= specification.description
+                        .product__specifications_extended_buttons
+                            a(href='javascript:void(0)' data-src='#popup-request' data-fancybox).btn оставить заявку
+                            a(href='javascript:void(0)').link Розничная покупка
+                .product__about
+                    .tabs
+                        .tabs__header
+                            button(data-tab='description').tabs__button.active Описание
+                            button(data-tab='specifications').tabs__button Комплектация
+                            button(data-tab='documentation').tabs__button Тех-документация
+                        .tabs__content
+                            .tabs__pane.active#description
+                                p Поддон стальной квадратный, 80х80 см - сантехническое изделие, предназначенное для обустройства открытого душа в жилых домах. Изготовлен по технологии штамповки из стального листа с последующим эмалированием поверхности. Поддон подлежит установке только на кирпичную кладку. Максимальная нагрузка на поддон составляет 90 килограмм
+                                p Преимущества:
+                                ul
+                                    li компактные габариты;
+                                    li механическая прочность;
+                                    li рифленая антискользящая поверхность;
+                                    li долговечность.
+                                p Простой, недорогой и функциональный стальной поддон для душа представлен в ассортименте магазинов компании Леруа Мерлен.
+                            .tabs__pane#specifications
+                                ul
+                                    li Прямоугольная паровая душевая кабина с гидромассажной ванной;
+                                    li S163BTC-A панель управления;
+                                    li Озонация;
+                                    li FM радио;
+                                    li Bluetooth;
+                                    li Хромотерапия;
+                                    li Двойная стеклянная крыша с контурной подсветкой;
+                                    li Центральная панель и профили из алюминия с матовым покрытием "голубой сапфир";
+                                    li Латунная ручка;
+                                    li Смеситель;
+                                    li Ручной душ, тропический душ (из нержавеющей стали);
+                                    li Задние стекла непрозрачные УСИЛЕННЫЕ, передние и боковые стекла прозрачные;
+                                    li Подголовник;
+                                    li Пневматическое управление гидромассажем в ванне;
+                                    li Подводная подсветка;
+                            .tabs__pane#documentation
+                                .tabs__pane_block
+                                    .tabs__pane_block_title Инструкции и файлы для скачивания:
+                                    .tabs__pane-links
+                                        .tabs__pane-link
+                                            .tabs__pane-link_image
+                                                +img('document-download.svg')
+                                            a(href='javascript:void(0)').link Инструкция
+                                        .tabs__pane-link
+                                            .tabs__pane-link_image
+                                                +img('document-download.svg')
+                                            a(href='javascript:void(0)').link Сертификат
+                                .tabs__pane_block
+                                    .tabs__pane_block_title Технический план:
+                                    .tabs__pane_block_blueprints
+                                        +img('pages/product/blueprint.jpg')
+
+
+                    .products__about_additional
+                        h2 Дополнительные комплектации
+                        .additional__items
+                            include ./components/_product-card
+                            include ./components/_product-card

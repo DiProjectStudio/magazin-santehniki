@@ -1,0 +1,24 @@
+---
+title: 'Страница | Часто задаваемы вопросы'
+bodyClass: faq-page
+---
+
+extends includes/_page
+include components/_breadcrumbs
+
+block main
+    +breadcrumbs('', 'Популярные вопросы')
+    section.faq
+        .container
+            .faq__inner
+                h2.faq__title Часто задаваемы вопросы
+                .faq__main-block
+                    .faq__main-block_image
+                        +img('pages/main/faq-1.jpg')
+                    .faq__main-block_items
+                        include components/_faq-item
+                        include components/_faq-item
+                        include components/_faq-item
+                        include components/_faq-item
+                        include components/_faq-item
+                        include components/_faq-item

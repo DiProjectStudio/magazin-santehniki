@@ -75,6 +75,13 @@ $(document).ready(function () {
             swiper: thumbs
         }
     });
+
+
+    const certificatesSlider = new Swiper('.certificates .swiper', {
+        slidesPerView: 1,
+        loop: true,
+    });
+
 });
 
 // effect: 'coverflow',

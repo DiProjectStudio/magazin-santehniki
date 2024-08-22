@@ -1,0 +1,44 @@
+.certificates {
+  padding-top: 30px;
+  padding-bottom: 96px;
+
+  @include breakpoint(md) {
+    margin-bottom: 128px;
+  }
+
+  @include breakpoint(lg) {
+    margin-bottom: 192px;
+  }
+
+  h1 {
+    margin-bottom: 24px;
+
+    @include breakpoint(md) {
+      margin-bottom: 32px;
+    }
+
+    @include breakpoint(lg) {
+      margin-bottom: 48px;
+    }
+  }
+
+  &__items.swiper {
+    @include breakpoint(md) {
+      display: none;
+    }
+  }
+
+  &__items.without-swiper {
+    display: none;
+
+    @include breakpoint(md) {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .certificates__item {
+      cursor: zoom-in;
+    }
+  }
+}

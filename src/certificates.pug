@@ -1,0 +1,33 @@
+---
+title: 'Страница | Cертификаты'
+bodyClass: certificates-page
+//yandexMap: true
+---
+
+extends includes/_page
+include components/_breadcrumbs
+block main
+    +breadcrumbs('', 'Сертификаты')
+    section.certificates
+        .container
+            .certificates__inner
+                h1 Сертификаты
+                .certificates__items.swiper
+                    .swiper-wrapper
+                        .swiper-slide(data-fancybox='gallery-2' data-src='./assets/images/pages/certificates/1.jpg')
+                            +img('pages/certificates/1.jpg')
+                        .swiper-slide(data-fancybox='gallery-2' data-src='./assets/images/pages/certificates/2.jpg')
+                            +img('pages/certificates/2.jpg')
+                        .swiper-slide(data-fancybox='gallery-2' data-src='./assets/images/pages/certificates/3.jpg')
+                            +img('pages/certificates/3.jpg')
+                        .swiper-slide(data-fancybox='gallery-2' data-src='./assets/images/pages/certificates/4.jpg')
+                            +img('pages/certificates/4.jpg')
+                .certificates__items.without-swiper
+                    .certificates__item(data-fancybox='gallery-3' data-src='./assets/images/pages/certificates/1.jpg')
+                        +img('pages/certificates/1.jpg')
+                    .certificates__item(data-fancybox='gallery-3' data-src='./assets/images/pages/certificates/2.jpg')
+                        +img('pages/certificates/2.jpg')
+                    .certificates__item(data-fancybox='gallery-3' data-src='./assets/images/pages/certificates/3.jpg')
+                        +img('pages/certificates/3.jpg')
+                    .certificates__item(data-fancybox='gallery-3' data-src='./assets/images/pages/certificates/4.jpg')
+                        +img('pages/certificates/4.jpg')

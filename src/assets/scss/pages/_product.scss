@@ -2,12 +2,20 @@
   padding-top: 39px;
   padding-bottom: 96px;
 
+  @include breakpoint(md) {
+    padding-bottom: 112px;
+  }
+
+  @include breakpoint(lg) {
+    padding-bottom: 192px;
+  }
+
   &__inner {
     @include breakpoint(lg) {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 20px;
-      height: 1330px;
+      height: auto;
     }
   }
 
@@ -22,7 +30,6 @@
     @include breakpoint(lg) {
       position: sticky;
       top: 152px;
-      left: 50%;
       height: fit-content;
     }
   }
@@ -38,7 +45,7 @@
     }
 
     @include breakpoint(lg) {
-      --swiper-height: calc(((100vw / 2) - 2 * var(--container)) * 0.83);
+      --swiper-height: calc(((1600px / 2) - 2 * var(--container)) * 0.83);
     }
   }
 
@@ -60,6 +67,7 @@
         align-items: center;
         border-radius: 10px;
         border: 1px solid $grey;
+        cursor: pointer;
 
         &.swiper-slide-thumb-active {
           border: 2px solid $prime;
@@ -82,7 +90,6 @@
     @include flexCenterCenter;
 
     @include breakpointMax(md) {
-
       --swiper-height: calc((100vw - 2 * var(--container)) * 0.9);
       height: var(--swiper-height);
     }
@@ -93,7 +100,6 @@
       top: calc(50% - 8px);
       z-index: 2;
       width: 100%;
-      height: 100%;
 
       @include breakpoint(md) {
         top: calc(50% - 17px);
@@ -112,6 +118,12 @@
       .slider-arrow--next, .slider-arrow--prev {
         width: 19px;
         height: 19px;
+        cursor: pointer;
+
+        &:hover svg path{
+          fill: $prime;
+          transition: .3s ease;
+        }
 
         @include breakpoint(md) {
           width: 37px;
@@ -131,6 +143,7 @@
       .swiper-slide {
         @include flexCenterCenter;
         margin-bottom: 0;
+        cursor: zoom-in;
 
         img {
           width: 41%;
@@ -164,7 +177,7 @@
 
     display: grid;
     gap: 4px;
-    max-width: 750px;
+    max-width: 600px;
 
     .extended_item {
       @include flexCenterBetween;
@@ -218,10 +231,10 @@
   transition: .3s ease;
 
   &__header {
-    margin-bottom: 24px;
     display: flex;
     gap: 16px;
     overflow-x: auto;
+    margin-bottom: 24px;
 
     @include breakpoint(md) {
       justify-content: space-between;
@@ -230,6 +243,10 @@
     @include breakpoint(lg) {
       justify-content: normal;
       gap: 24px;
+    }
+
+    @include breakpoint(uhd) {
+      margin-bottom: 32px;
     }
 
     .tabs__button {
@@ -256,6 +273,11 @@
       &_title {
         line-height: 150%;
         margin-bottom: 12px;
+        margin-top: 24px;
+
+        @include breakpoint(uhd) {
+          margin-top: 32px;
+        }
       }
     }
 

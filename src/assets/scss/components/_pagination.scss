@@ -1,0 +1,36 @@
+.pagination {
+  @include flexCenterCenter;
+  gap: 8px;
+  margin-top: 34px;
+
+  &__item {
+    padding: 2px 12px;
+    @include flexCenterCenter;
+    cursor: pointer;
+    transition: .3s ease;
+
+    &:hover {
+      color: $prime;
+    }
+
+    &.active {
+      color: $prime;
+      position: relative;
+
+      &:after {
+        content: '';
+        background: $prime;
+        width: 2px;
+        height: 36px;
+        transform: rotate(-90deg);
+        position: absolute;
+        left: 14px;
+        bottom: -24px;
+      }
+    }
+  }
+
+  &__arrow-prev, &__arrow-next {
+    cursor: pointer;
+  }
+}

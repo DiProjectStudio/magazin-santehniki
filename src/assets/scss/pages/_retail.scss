@@ -1,0 +1,35 @@
+.retail {
+  padding-top: 31px;
+  padding-bottom: 96px;
+
+  @include breakpoint(md) {
+    padding-bottom: 128px;
+  }
+
+  @include breakpoint(lg) {
+    padding-bottom: 192px;
+  }
+
+  h1 {
+    margin-bottom: 24px;
+  }
+
+  &__items {
+    display: grid;
+    gap: 12px;
+
+    @include breakpoint(md) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include breakpoint(lg) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .pagination {
+    @include breakpoint(lg) {
+      display: none;
+    }
+  }
+}

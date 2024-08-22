@@ -1,0 +1,29 @@
+.retail-item {
+  width: 100%;
+  border-radius: 10px;
+  border: 2px solid $grey;
+  padding: 16px 24px;
+  display: grid;
+
+  &__town {
+    font-size: 20px;
+    line-height: 120%;
+    margin-bottom: 12px;
+  }
+
+  &__address {
+    line-height: 150%;
+    margin-bottom: 8px;
+  }
+
+  &__number {
+    color: $prime;
+    font-size: 20px;
+    line-height: 120%;
+    margin-bottom: 8px;
+  }
+
+  &__mail {
+    line-height: 150%;
+  }
+}

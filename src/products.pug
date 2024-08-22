@@ -1,6 +1,6 @@
 ---
 title: 'Страница | Душевые кабины'
-bodyClass: categories-page
+bodyClass: products-page
 ---
 
 extends includes/_page
@@ -146,14 +146,7 @@ block main
                 .products__cards
                     each n in [1, 2, 3, 4, 5, 6, 7, 8]
                         include components/_product-card
-                .products__pagination
-                    .products__pagination_arrow-prev
-                        +img('arrow-prev.svg')
-                    .products__pagination_item.active 1
-                    .products__pagination_item 2
-                    .products__pagination_item 3
-                    .products__pagination_arrow-next
-                        +img('arrow-next.svg')
+                include components/_pagination
 
 
 

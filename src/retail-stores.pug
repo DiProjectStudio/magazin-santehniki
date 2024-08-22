@@ -1,0 +1,20 @@
+---
+title: 'Страница | Розничные магазины'
+bodyClass: retail-stores-page
+---
+
+extends includes/_page
+include components/_breadcrumbs
+
+block main
+    +breadcrumbs('', 'Розничные магазины')
+    section.retail
+        .container
+            .retail__inner
+                h1 Розничные магазины с нашей продукцией
+                .retail__items
+                    include components/_retail-item
+                    include components/_retail-item
+                    include components/_retail-item
+                    include components/_retail-item
+                include components/_pagination

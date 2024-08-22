@@ -1,0 +1,16 @@
+.cp__item {
+  border-radius: 10px;
+  border: 2px solid $grey;
+  padding: 16px 24px;
+  display: grid;
+  gap: 12px;
+
+  &_title {
+    font-size: 20px;
+    line-height: 120%;
+  }
+
+  &_button {
+    text-decoration: none;
+  }
+}

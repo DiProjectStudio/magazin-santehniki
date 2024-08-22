@@ -1,0 +1,33 @@
+---
+title: 'Страница | Презентации и каталоги'
+bodyClass: catalog-presentation-page
+---
+
+extends includes/_page
+include components/_breadcrumbs
+include components/_catalog-presentation-item
+
+block main
+    +breadcrumbs('', 'Презентации и каталоги')
+    section.catalogs-presentations
+        .container
+            .catalogs-presentations__inner
+                .catalogs-presentations__block
+                    h2.catalogs-presentations__block__title Каталоги
+                    .catalogs-presentations__block__items
+                        +cp('Каталог SSWW санфаянсы')
+                        +cp('Каталог SSWW санфаянсы')
+                        +cp('Каталог SSWW санфаянсы')
+                        +cp('Каталог SSWW санфаянсы')
+                        +cp('Каталог SSWW санфаянсы')
+                        +cp('Каталог SSWW санфаянсы')
+                .catalogs-presentations__block
+                    h2.catalogs-presentations__block__title презентации
+                    .catalogs-presentations__block__items
+                        +cp('Презентация SSWW санфаянсы')
+                        +cp('Презентация SSWW санфаянсы')
+                        +cp('Презентация SSWW санфаянсы')
+                        +cp('Презентация SSWW санфаянсы')
+                        +cp('Презентация SSWW санфаянсы')
+                        +cp('Презентация SSWW санфаянсы')
+

@@ -1,0 +1,43 @@
+.catalogs-presentations {
+  padding-top: 30px;
+  padding-bottom: 96px;
+
+  @include breakpoint(md) {
+    padding-bottom: 128px;
+  }
+
+  @include breakpoint(lg) {
+    padding-top: 38px;
+    padding-bottom: 192px;
+  }
+}
+
+.catalogs-presentations__block {
+  margin-bottom: 24px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  h2 {
+    margin-bottom: 24px;
+
+    @include breakpoint(md) {
+      margin-bottom: 32px;
+    }
+  }
+
+  .catalogs-presentations__block__items {
+    display: grid;
+    gap: 12px;
+
+    @include breakpoint(md) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    @include breakpoint(lg) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}

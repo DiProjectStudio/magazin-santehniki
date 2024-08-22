@@ -648,6 +648,16 @@
 ///////////////////////////////////FAQ///////////////////////////////////
 
 .faq {
+  margin-bottom: 96px;
+
+  @include breakpoint(md) {
+    margin-bottom: 128px;
+  }
+
+  @include breakpoint(lg) {
+    margin-bottom: 192px;
+  }
+
   &__title {
     margin-bottom: 24px;
 
@@ -680,48 +690,7 @@
   }
 
 
-  &__item {
 
-    line-height: 150%; /* 24px */
-    padding: 24px 16px;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 12px;
-    border-radius: 10px;
-    border: 1px solid $black;
-    transition: $transition;
-
-    &_top {
-      @include flexCenterBetween;
-
-      &_title {
-        @include breakpoint(md) {
-          font-size: 20px;
-        }
-      }
-
-      &_close img {
-        width: 24px;
-        height: 24px;
-        cursor: pointer;
-        transition: $transition;
-      }
-    }
-
-    &_text {
-      display: none;
-    }
-
-    &.active {
-      .faq__item_top_close img {
-        transform: rotate(45deg);
-      }
-
-      .faq__item_text {
-        display: block;
-      }
-    }
-  }
 
 
 }

@@ -9,7 +9,6 @@ $xl: 1440px;
 
 $hd: 1600px;
 
-$uhd: 1920px;
 
 @mixin breakpoint($point) {
     @if $point==s {

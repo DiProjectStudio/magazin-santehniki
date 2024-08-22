@@ -1,0 +1,63 @@
+---
+title: 'Страница | Сервисный центр'
+bodyClass: service-center-page
+---
+
+extends includes/_page
+include components/_breadcrumbs
+
+block main
+    +breadcrumbs('', 'Сервисный центр')
+    section.service-center
+        .container
+            .service-center__inner
+                .service-center__heading
+                    .service-center__heading_text
+                        h1.service-center__heading_text-title Сервисный центр по ремонту и обслуживанию сантехники ssww
+                        .service-center__heading_text-subtitle Вы можете получить консультацию по интересующим вас вопросам, заказать необходимые запчасти и комплектующие к изделию в нашем сервисном центре
+                        a(href='javascript:void(0)' data-src='#popup-request' data-fancybox).service-center__heading_text-button.btn получить консультацию
+                    .service-center__heading_image
+                        +img('pages/service-center/main.jpg')
+                .service-center__about
+                    h2.service-center__about_title о сервисном центре
+                    .service-center__about_items
+                        .service-center__about_item
+                            .service-center__about_item_head
+                                .service-center__about_item_head-text Услуги сервиса
+                                .service-center__about_item_head-number (01)
+                            .service-center__about_item_description Сервис SSWW оказывает услуги по доставке, установке, подключению и последующему техническому обслуживанию всей реализуемой продукции. А так же выполняем гарантийное и постгарантийное обслуживание.
+                        .service-center__about_item
+                            .service-center__about_item_head
+                                .service-center__about_item_head-text Гарантия 12 месяцев
+                                .service-center__about_item_head-number (02)
+                            .service-center__about_item_description Все изделия SSWW имеют гарантию 12 месяцев с даты покупки. В течение этого периода Продавец несёт гарантийные обязательства, в случае обнаружения каких-либо заводских дефектов или неисправностей берет на себя обязательства осуществить бесплатный ремонт с заменой всех необходимых запасных частей.
+                        .service-center__about_item
+                            +img('pages/service-center/about.jpg')
+                .service-center__contacts
+                    h2.service-center__contacts_title Контакты сервисных центров
+                    .service-center__contacts_main
+
+                        .service-center__contacts_main-items
+                            .service-center__contacts_main-item.image
+                                +img('pages/service-center/contacts.jpg')
+                            include components/_retail-item
+                            include components/_retail-item
+                            include components/_retail-item
+                            include components/_retail-item
+                            include components/_retail-item
+                            .service-center__contacts_main-item
+                                p Возврат и обмен
+                                p По вопросам возврата и обмена, обращайтесь в магзин где преобреталась продукция.
+                    .service-center__contacts_text
+                        h2 СЕО текст
+                        .service-center__contacts_text-blocks
+                            .service-center__contacts_text-block
+                                p Чистота помещения уточняется путем количественного анализа частиц, находящихся в воздушной среде. Предельные значения четко фиксируются в соответствующих таблицах. Разработанные классы чистоты учитывают специфику конкретного помещения, его задачи.
+                            .service-center__contacts_text-block
+                                p Чистота помещения уточняется путем количественного анализа частиц, находящихся в воздушной среде. Предельные значения четко фиксируются в соответствующих таблицах. Разработанные классы чистоты учитывают специфику конкретного помещения, его задачи.
+
+
+
+
+
+

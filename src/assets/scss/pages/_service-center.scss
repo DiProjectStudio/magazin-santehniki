@@ -1,0 +1,245 @@
+/////////////////////////////////////////HEADING////////////////////////////////////////
+
+.service-center-page #main {
+
+}
+
+.service-center {
+
+  &__inner {
+    display: grid;
+    justify-content: center;
+  }
+
+  &__heading {
+    display: grid;
+    margin-bottom: 96px;
+
+    @include breakpoint(md) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    &_text {
+      text-align: center;
+
+      @include breakpoint(md) {
+        justify-items: normal;
+        text-align: left;
+      }
+
+      h1 {
+        margin-bottom: 12px;
+        margin-top: 38px;
+
+        @include breakpoint(lg) {
+          margin-top: 172px;
+          margin-bottom: 18px;
+        }
+      }
+
+      &-button {
+        margin: 24px auto;
+
+        @include breakpoint(md) {
+          margin: 24px 0;
+        }
+
+        @include breakpoint(lg) {
+          margin: 36px 0;
+        }
+      }
+    }
+
+    &_image {
+      height: calc((100vw - var(--container) * 2) * 0.95);
+      border-radius: 10px;
+
+      @include breakpoint(md) {
+        border-radius: 0 0 10px 10px;
+        margin-top: -100px;
+        height: 463px;
+      }
+
+      @include breakpoint(lg) {
+        height: 860px;
+        margin-top: -120px;
+      }
+
+      @include breakpoint(xl) {
+        margin-top: -130px;
+      }
+
+      @include breakpoint(hd) {
+        height: 1080px;
+      }
+
+      img {
+        object-position: top;
+      }
+    }
+  }
+}
+
+//////////////////////////////////////////ABOUT////////////////////////////////////////////
+.service-center__about {
+  margin-bottom: 96px;
+
+  @include breakpoint(md) {
+    margin-bottom: 128px;
+  }
+
+  @include breakpoint(lg) {
+    margin-bottom: 192px;
+  }
+
+  h2 {
+    margin-bottom: 24px;
+
+    @include breakpoint(md) {
+      margin-bottom: 48px;
+    }
+  }
+
+  &_items {
+    display: grid;
+    gap: 24px;
+    grid-auto-rows: 1fr;
+
+    @include breakpoint(md) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include breakpoint(lg) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .service-center__about_item {
+      padding: 16px 20px;
+      border-radius: 20px;
+      background: #E5EAFC;
+
+      &_head {
+        @include flexCenterBetween;
+        margin-bottom: 12px;
+
+        &-text {
+          font-size: 20px;
+        }
+
+        &-number {
+          font-style: italic;
+        }
+      }
+
+      &_description {
+        line-height: 150%;
+      }
+
+      &:last-child {
+        padding: 0;
+        display: none;
+
+        @include breakpoint(lg) {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+///////////////////////////////////CONTACTS/////////////////////////////////
+.service-center__contacts {
+  h2 {
+    margin-bottom: 24px;
+
+    @include breakpoint(md) {
+      margin-bottom: 48px;
+    }
+  }
+
+  &_main {
+    &-items {
+      display: grid;
+      gap: 12px;
+      margin-bottom: 96px;
+      grid-auto-rows: 1fr;
+
+      @include breakpoint(md) {
+        margin-bottom: 128px;
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @include breakpoint(lg) {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+      }
+    }
+  }
+}
+
+.service-center__contacts_main-item {
+  padding: 16px 24px;
+  background-color: #E5EAFC;
+  border-radius: 10px;
+
+  &.image {
+    display: none;
+    border-radius: 20px;
+    padding: 0;
+
+    @include breakpoint(lg) {
+      display: block;
+      grid-row: 1 / 4;
+      grid-column: 1 / 2;
+    }
+  }
+
+  p {
+    &:first-child {
+      font-size: 20px;
+      line-height: 120%;
+      margin-bottom: 12px;
+    }
+
+    &:last-child {
+      line-height: 150%;
+    }
+  }
+}
+
+
+.service-center__contacts_text {
+  margin-bottom: 96px;
+
+  @include breakpoint(md) {
+    margin-bottom: 128px;
+  }
+
+  @include breakpoint(lg) {
+    margin-bottom: 192px;
+  }
+
+  h2 {
+    margin-bottom: 32px;
+
+    @include breakpoint(lg) {
+      margin-bottom: 48px;
+    }
+  }
+
+  &-blocks {
+    display: grid;
+    gap: 20px;
+
+    @include breakpoint(lg) {
+      @include flexCenterBetween;
+    }
+
+    .service-center__contacts_text-block {
+      p {
+        line-height: 150%;
+      }
+    }
+  }
+}

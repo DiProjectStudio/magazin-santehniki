@@ -1,24 +1,6 @@
 /////////////////////////////HERO//////////////////////////////////////
 
-#main:has(section.main) {
-  padding-bottom: 96px;
-  @include breakpoint(md) {
-    margin-top: -48px;
-  }
-
-  @include breakpoint(lg) {
-    margin-top: -68px;
-  }
-
-  @include breakpoint(xl) {
-    margin-top: -78px;
-  }
-}
-
-
 .main {
-
-
   &__inner {
     @include breakpoint(md) {
       display: grid;
@@ -36,6 +18,15 @@
   @include breakpoint(md) {
     height: 100%;
     border-radius: 0 0 10px 10px;
+    margin-top: -48px;
+  }
+
+  @include breakpoint(lg) {
+    margin-top: -68px;
+  }
+
+  @include breakpoint(xl) {
+    margin-top: -78px;
   }
 
   img {
@@ -51,15 +42,15 @@
   }
 
   &-title {
-    margin-top: 84px;
+    margin-top: 24px;
     margin-bottom: 12px;
 
     @include breakpoint(md) {
-      margin-top: 128px;
+      margin-top: 68px;
     }
 
     @include breakpoint(lg) {
-      margin-top: 308px;
+      margin-top: 222px;
       margin-bottom: 16px;
     }
   }

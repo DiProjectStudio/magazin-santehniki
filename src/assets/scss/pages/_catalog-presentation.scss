@@ -19,7 +19,7 @@
     margin-bottom: 0;
   }
 
-  h2 {
+  .section-title {
     margin-bottom: 24px;
 
     @include breakpoint(md) {

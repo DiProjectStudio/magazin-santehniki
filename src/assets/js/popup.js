@@ -4,5 +4,7 @@ $(document).ready(function () {
     Fancybox.bind('[data-fancybox]', {
         dragToClose: false,
         autoFocus: false,
+        // compact: true
+        hideScrollbar: false,
     })
 });

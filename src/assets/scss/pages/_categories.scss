@@ -4,18 +4,19 @@
     margin-top: 30px;
   }
 
-  h2 {
+  .section-title {
     margin-top: 48px;
     margin-bottom: 24px;
   }
 
   p {
-    @include textLimit(1);
+    //@include textLimit(1);
     font-size: 16px;
     max-width: 789px;
+    text-wrap: balance;
   }
 
-  a.link {
+  .link {
     margin-top: 24px;
     font-size: 16px;
     margin-left: 12px;

@@ -4,13 +4,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 function faqAction() {
-    const closeButtons = document.querySelectorAll('.faq__item_top_close');
+    const actionElements = document.querySelectorAll('.faq__item');
     const faqItems = document.querySelectorAll('.faq__item');
 
-    closeButtons.forEach(closeButton => {
-        closeButton.addEventListener('click', (event)=> {
-            closeButton.parentNode.parentElement.classList.toggle('active');
-            console.log(closeButton.parentElement.parentElement);
+    actionElements.forEach(item => {
+        item.addEventListener('click', (event)=> {
+            item.classList.toggle('active');
         });
     });
 }

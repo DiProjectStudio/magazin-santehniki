@@ -1,7 +1,7 @@
 :root {
   --container: 16px;
 
-  --variable: 20px;
+  //--variable: 20px;
 
   @include breakpoint(md) {
     --container: 20px;

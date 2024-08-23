@@ -93,7 +93,7 @@
     margin-bottom: 192px;
   }
 
-  h2 {
+  .section-title {
     margin-bottom: 24px;
 
     @include breakpoint(md) {
@@ -150,7 +150,7 @@
 
 ///////////////////////////////////CONTACTS/////////////////////////////////
 .service-center__contacts {
-  h2 {
+  .section-title {
     margin-bottom: 24px;
 
     @include breakpoint(md) {
@@ -220,7 +220,7 @@
     margin-bottom: 192px;
   }
 
-  h2 {
+  .section-title {
     margin-bottom: 32px;
 
     @include breakpoint(lg) {

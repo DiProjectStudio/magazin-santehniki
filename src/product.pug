@@ -121,21 +121,19 @@ block main
                                     .tabs__pane_block_title Инструкции и файлы для скачивания:
                                     .tabs__pane-links
                                         .tabs__pane-link
-                                            .tabs__pane-link_image
+                                            a(href='javascript:void(0)').tabs__pane-link_image
                                                 +img('document-download.svg')
-                                            a(href='javascript:void(0)').link Инструкция
+                                            .link Инструкция
                                         .tabs__pane-link
-                                            .tabs__pane-link_image
+                                            a(href='javascript:void(0)').tabs__pane-link_image
                                                 +img('document-download.svg')
-                                            a(href='javascript:void(0)').link Сертификат
+                                            .link Сертификат
                                 .tabs__pane_block
                                     .tabs__pane_block_title Технический план:
                                     .tabs__pane_block_blueprints
                                         +img('pages/product/blueprint.jpg')
-
-
                     .products__about_additional
-                        h2 Дополнительные комплектации
+                        .section-title Дополнительные комплектации
                         .additional__items
                             include ./components/_product-card
                             include ./components/_product-card

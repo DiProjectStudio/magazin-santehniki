@@ -129,9 +129,9 @@ block main
                                 }
                             ]
                         each category in categories
-                            li.menu__item.trig
-                                .menu__item-top
-                                    p= category.name
+                            li.menu__item
+                                .menu__item-top.trig
+                                    a(href='javascript:void(0)')= category.name
                                     if category.subcategories.length > 0
                                         include ./assets/images/arrow-down.svg
                                 if category.subcategories && category.subcategories.length > 0

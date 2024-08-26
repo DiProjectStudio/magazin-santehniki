@@ -50,6 +50,8 @@
   }
 }
 
+
+
 .navbar__wrapper {
   border-radius: 6px;
   background: $white;
@@ -58,6 +60,8 @@
   bottom: calc(100vh - 400px);
   padding: 6px;
   overflow: auto;
+
+
 
   &.active {
     position: absolute;
@@ -117,7 +121,6 @@
             path {
               stroke: $prime;
             }
-
           }
         }
       }

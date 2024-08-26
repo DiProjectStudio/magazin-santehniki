@@ -167,11 +167,12 @@ function navbarAction() {
 }
 
 function dropdownMenuAction() {
-    const dropdownMenu = document.querySelector('.dropdown-menu');
     const triggers = document.querySelectorAll('.trig');
-    triggers.forEach(trigger => trigger.addEventListener('click', () => {
-        const dropdown = trigger.children[1];
+    triggers.forEach(trigger => trigger.addEventListener('click', (event) => {
+
+        const dropdown = trigger.nextElementSibling;
         let totalHeight = 0;
+        console.log(trigger.nextElementSibling)
 
         dropdown.querySelectorAll('.dropdown-item').forEach((el, index) => {
             totalHeight += el.clientHeight;

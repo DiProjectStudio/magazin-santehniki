@@ -10,10 +10,6 @@ body {
   transition: .4s;
 }
 
-.compensate-for-scrollbar {
-  //padding-right: 0!important;
-}
-
 body.overflow-hidden {
   overflow: hidden;
 }
@@ -24,19 +20,7 @@ body b {
 }
 
 ::-webkit-scrollbar {
-  //width: 0;
-  //height: 0;
-  //width: 6px;
-
-
-  //height: 140px;
-
-  @include breakpoint(lg) {
-    //width: 8px;
-    //height: 10px;
-  }
-
-
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -44,11 +28,17 @@ body b {
 }
 
 ::-webkit-scrollbar-thumb {
+  background: $prime;
+  border-radius: 6px;
+}
 
+* {
+  scrollbar-width: thin;
+  scrollbar-color: $prime $prime;
 }
 
 ::-webkit-scrollbar-button {
-  display: none;
+
 }
 
 

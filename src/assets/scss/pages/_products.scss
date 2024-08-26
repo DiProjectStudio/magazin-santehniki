@@ -50,30 +50,51 @@
   }
 }
 
-
-
 .navbar__wrapper {
   border-radius: 6px;
   background: $white;
   transition: .6s ease;
   top: -60px;
-  bottom: calc(100vh - 400px);
   padding: 6px;
   overflow: auto;
-
-
+  position: relative;
 
   &.active {
     position: absolute;
     z-index: 3;
     width: calc(100vw - var(--container) * 2);
+    bottom: calc(100vh - 400px);
     top: 0;
-
+    @include breakpoint(md) {
+      width: calc(100vw - var(--container) * 2);
+      bottom: calc(100vh - 600px);
+      background: transparent;
+      padding: 0;
+    }
   }
 
   .navbar__button {
     @include flexCenterBetween;
     margin-bottom: 6px;
+
+    @include breakpoint(md) {
+      background: $white;
+      width: 50%;
+      padding: 6px;
+      margin-bottom: 0;
+      border-radius: 10px 0 0 0;
+    }
+
+    .button__main {
+      @include flexAlignCenter;
+      gap: 14px;
+    }
+
+    .button__arrow {
+      @include breakpoint(md) {
+        display: none;
+      }
+    }
 
     &.active {
       .button__main {
@@ -83,16 +104,8 @@
 
       .button__arrow {
         transform: rotate(180deg);
+
       }
-    }
-
-    .button__main {
-      @include flexAlignCenter;
-      gap: 14px;
-    }
-
-    .button__arrow {
-
     }
   }
 
@@ -101,23 +114,46 @@
     opacity: 0;
     overflow: hidden;
     transition: .6s ease;
+    background: $white;
 
     &.active {
       height: fit-content;
       opacity: 1;
+
+      @include breakpoint(md) {
+        width: 50%;
+        border-radius: 0 0 10px 10px;
+      }
     }
 
     .menu__item {
-      padding: 12px 6px 0;
+      padding: 12px 6px;
+      border-bottom: 1px solid $gray-white-65;
+      font-size: 14px;
+
+      @include breakpoint(md) {
+        padding: 12px;
+      }
 
       .menu__item-top {
         @include flexCenterBetween;
+
+        svg {
+          @include breakpoint(md) {
+            transform: rotate(270deg);
+          }
+        }
 
         &.active {
           color: $prime;
 
           svg {
             transform: rotate(180deg);
+
+            @include breakpoint(md) {
+              transform: rotate(90deg);
+            }
+
             path {
               stroke: $prime;
             }
@@ -142,6 +178,24 @@
         }
       }
     }
+  }
+}
 
+.dropdown-menu-js {
+  position: absolute;
+  background: #E5EAFC;
+  border-radius: 0 10px 10px 0;
+  //width: 0;
+  width: calc(50vw - var(--container));
+  //bottom: calc(100vh - 600px);
+  z-index: 3;
+  left: 50%;
+  top: 0;
+  height: 100%;
+  //display: none;
+  transition: .6s ease;
+
+  &.active {
+    width: calc(50vw - var(--container));
   }
 }

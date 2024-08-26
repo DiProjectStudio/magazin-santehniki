@@ -21,15 +21,16 @@ body b {
 
 ::-webkit-scrollbar {
   width: 6px;
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-track {
-
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb {
   background: $prime;
-  border-radius: 6px;
+  border-radius: 3px;
 }
 
 * {

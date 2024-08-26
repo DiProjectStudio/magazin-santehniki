@@ -135,6 +135,10 @@ document.addEventListener('DOMContentLoaded', () => {
     dropdownMenuAction();
 });
 
+document.addEventListener('resize', ()=> {
+    dropdownMenuAction();
+})
+
 function navbarAction() {
     const navbarButton = document.getElementById('navbarButton');
     const navbarOverlay = document.querySelector('.navbar__overlay');
@@ -169,23 +173,32 @@ function navbarAction() {
 function dropdownMenuAction() {
     const triggers = document.querySelectorAll('.trig');
     triggers.forEach(trigger => trigger.addEventListener('click', (event) => {
+        if (window.innerWidth < 744) {
+            const dropdown = trigger.nextElementSibling;
+            let totalHeight = 0;
 
-        const dropdown = trigger.nextElementSibling;
-        let totalHeight = 0;
-        console.log(trigger.nextElementSibling)
+            dropdown.querySelectorAll('.dropdown-item').forEach((el, index) => {
+                totalHeight += el.clientHeight;
+            });
 
-        dropdown.querySelectorAll('.dropdown-item').forEach((el, index) => {
-            totalHeight += el.clientHeight;
-        });
-
-        if (dropdown.style.height === "0px" || dropdown.style.height === "") {
-            dropdown.style.height = totalHeight + "px";
-            dropdown.previousElementSibling.classList.add('active');
-        } else {
-            dropdown.style.height = "0px";
-            dropdown.previousElementSibling.classList.remove('active');
+            if (dropdown.style.height === "0px" || dropdown.style.height === "") {
+                dropdown.style.height = totalHeight + "px";
+                dropdown.previousElementSibling.classList.add('active');
+            } else {
+                dropdown.style.height = "0px";
+                dropdown.previousElementSibling.classList.remove('active');
+            }
         }
+
+        if (window.innerWidth >= 744 && window.innerWidth < 1200) {
+            const dropdownJS = document.querySelectorAll('.dropdown-menu-js');
+            // по клику на категорию, происходит перенос подкатегорий во dropdown-js
+
+        }
+
     }));
+
+
 }
 
 

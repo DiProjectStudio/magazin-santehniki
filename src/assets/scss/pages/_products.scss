@@ -29,32 +29,42 @@
   }
 }
 
-.navbar__layout {
-  display: none;
+.navbar__overlay {
+  opacity: 0;
+  transition: .6s ease;
 
   &.active {
-    position: absolute;
-    top: -50px;
+    position: fixed;
     left: 0;
     right: 0;
     bottom: 0;
     background: $gray-white-65;
     backdrop-filter: blur(7.5px);
-    width: 100vw;
-    height: 120vh;
-    z-index: 2;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
     isolation: isolate;
-    display: none;
-
+    display: block;
+    overflow: hidden;
+    opacity: 1;
   }
 }
 
 .navbar__wrapper {
   border-radius: 6px;
   background: $white;
+  transition: .6s ease;
+  top: -60px;
+  bottom: calc(100vh - 400px);
+  padding: 6px;
+  overflow: auto;
 
   &.active {
     position: absolute;
+    z-index: 3;
+    width: calc(100vw - var(--container) * 2);
+    top: 0;
+
   }
 
   .navbar__button {
@@ -65,14 +75,6 @@
       .button__main {
         @include flexAlignCenter;
         gap: 14px;
-
-        .button__main-image {
-
-        }
-
-        .button__main-text {
-
-        }
       }
 
       .button__arrow {
@@ -83,14 +85,6 @@
     .button__main {
       @include flexAlignCenter;
       gap: 14px;
-
-      .button__main-image {
-
-      }
-
-      .button__main-text {
-
-      }
     }
 
     .button__arrow {
@@ -99,6 +93,16 @@
   }
 
   .navbar__menu {
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: .6s ease;
+
+    &.active {
+      height: fit-content;
+      opacity: 1;
+    }
+
     .menu__item {
       padding: 12px 6px 0;
 
@@ -106,8 +110,14 @@
         @include flexCenterBetween;
 
         &.active {
+          color: $prime;
+
           svg {
             transform: rotate(180deg);
+            path {
+              stroke: $prime;
+            }
+
           }
         }
       }

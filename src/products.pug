@@ -21,24 +21,133 @@ block main
                         .button__arrow
                             +img('arrow-down.svg')
                     ul.navbar__menu
-                        li.menu__item.trig
-                            .menu__item-top
-                                p Душевые кабины
-                                include ./assets/images/arrow-down.svg
-                            ul.dropdown-menu
-                                li.dropdown-item
-                                    a(href='javascript:void(0)') Душевые кабины с паром
-                                li.dropdown-item
-                                    a(href='javascript:void(0)') Душевые кабины без пара
-                        li.menu__item.trig
-                            .menu__item-top
-                                p Душевые ограждения
-                                include ./assets/images/arrow-down.svg
-                            ul.dropdown-menu
-                                li.dropdown-item
-                                    a(href='javascript:void(0)') Душевые ограждения
-                                li.dropdown-item
-                                    a(href='javascript:void(0)') Двери в нишу
+                        -
+                            var categories = [
+                                {
+                                    name: 'Смесители',
+                                    subcategories: [
+                                        {name: 'Душевые кабины с паром'},
+                                        {name: 'Душевые кабины без пара'},
+
+                                    ]
+                                },
+                                {name: 'Сауны', subcategories: []},
+                                {
+                                    name: 'Душевые кабины',
+                                    subcategories: [
+                                        {name: 'Душевые ограждения'},
+                                        {name: 'Двери в нишу'},
+                                        {name: 'Душевые стойки'},
+                                        {name: 'Душевые панели'}
+                                    ]
+                                },
+                                {
+                                    name: 'Ванны',
+                                    subcategories: [
+                                        {name: 'С гидромассажа'},
+                                        {name: 'Без гидромассажа'},
+                                        {name: 'Акриловые отдельностоящие'},
+                                        {name: 'Компактные'},
+                                        {name: 'Из искуственного камня'},
+                                        {name: 'Серия H'},
+                                        {name: 'Серия J'}
+                                    ]
+                                },
+                                {
+                                    name: 'Мебель',
+                                    subcategories: [
+                                        {name: 'Серия BW 62'},
+                                        {name: 'Серия BF 60'},
+                                        {name: 'Серия BF 82'},
+                                        {name: 'Серия BF 83'},
+                                        {name: 'Серия BF 87'},
+                                        {name: 'Серия BF 89'}
+                                    ]
+                                },
+                                {
+                                    name: 'Санфаянс',
+                                    subcategories: [
+                                        {name: 'Унитазы'},
+                                        {name: 'Биде'},
+                                        {name: 'Писсуары'},
+                                        {name: 'Раковины'}
+                                    ]
+                                },
+                                {
+                                    name: 'Финские сауны',
+                                    subcategories: [
+                                        {name: 'Унитазы'},
+                                        {name: 'Биде'},
+                                        {name: 'Писсуары'},
+                                        {name: 'Раковины'}
+                                    ]
+                                },
+                                {
+                                    name: 'Душевые ограждения',
+                                    subcategories: [
+                                        {name: 'Унитазы'},
+                                        {name: 'Биде'},
+                                        {name: 'Писсуары'},
+                                        {name: 'Раковины'}
+                                    ]
+                                },
+                                {
+                                    name: 'Душевые стойки',
+                                    subcategories: [
+                                        {name: 'Унитазы'},
+                                        {name: 'Биде'},
+                                        {name: 'Писсуары'},
+                                        {name: 'Раковины'}
+                                    ]
+                                },
+                                {
+                                    name: 'Запорная арматура',
+                                    subcategories: [
+                                        {name: 'Донные клапаны'},
+                                        {name: 'Смывная арматура'},
+                                        {name: 'Запорная арматура'},
+                                        {name: 'Сифоны'}
+                                    ]
+                                },
+                                {
+                                    name: 'Аксессуары для ванны',
+                                    subcategories: [
+                                        {name: 'Смесители'},
+                                        {name: 'Картриджи'},
+                                        {name: 'Форсунки'},
+                                        {name: 'Панели и пульты управления'}
+                                    ]
+                                },
+                                {
+                                    name: 'Запчасти',
+                                    subcategories: [
+                                        {name: 'Смесители'},
+                                        {name: 'Картриджи'},
+                                        {name: 'Форсунки'},
+                                        {name: 'Панели и пульты управления'}
+                                    ]
+                                }
+                            ]
+                        each category in categories
+                            li.menu__item.trig
+                                .menu__item-top
+                                    p= category.name
+                                    if category.subcategories.length > 0
+                                        include ./assets/images/arrow-down.svg
+                                if category.subcategories && category.subcategories.length > 0
+                                    ul.dropdown-menu
+                                        each subcategory in category.subcategories
+                                            li.dropdown-item
+                                                a(href='javascript:void(0)')= subcategory.name
+                    //li.menu__item.trig
+                    //    .menu__item-top
+                    //        p Душевые ограждения
+                    //        include ./assets/images/arrow-down.svg
+                    //    ul.dropdown-menu
+                    //        li.dropdown-item
+                    //            a(href='javascript:void(0)') Душевые ограждения
+                    //        li.dropdown-item
+                    //            a(href='javascript:void(0)') Двери в нишу
                 .products__wrapper
                     h1 Душевые кабины
                     .products__grid

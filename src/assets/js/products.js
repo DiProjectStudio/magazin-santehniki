@@ -132,15 +132,36 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     navbarAction();
-
     dropdownMenuAction();
 });
 
 function navbarAction() {
     const navbarButton = document.getElementById('navbarButton');
+    const navbarOverlay = document.querySelector('.navbar__overlay');
+    const navbarWrapper = document.querySelector('.navbar__wrapper');
+    const navbarMenu = document.querySelector('.navbar__menu');
+
     if (navbarButton) {
         navbarButton.addEventListener('click', (e) => {
             navbarButton.classList.toggle('active');
+            navbarOverlay.classList.toggle('active');
+            navbarWrapper.classList.toggle('active');
+            navbarMenu.classList.toggle('active');
+            if (navbarButton.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+                document.addEventListener('click', function (event) {
+                    event.stopPropagation();
+                    if (!event.composedPath().includes(navbarWrapper)) {
+                        navbarWrapper.classList.remove('active');
+                        navbarOverlay.classList.remove('active');
+                        navbarButton.classList.remove('active');
+                        navbarMenu.classList.remove('active')
+                    }
+                });
+            } else {
+                document.body.style.overflow = '';
+            }
+
         });
     }
 }
@@ -151,6 +172,7 @@ function dropdownMenuAction() {
     triggers.forEach(trigger => trigger.addEventListener('click', () => {
         const dropdown = trigger.children[1];
         let totalHeight = 0;
+
         dropdown.querySelectorAll('.dropdown-item').forEach((el, index) => {
             totalHeight += el.clientHeight;
         });

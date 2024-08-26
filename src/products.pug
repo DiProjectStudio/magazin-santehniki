@@ -11,41 +11,34 @@ block main
     section.products
         .container
             .products__inner
-                .catalog__wrapper-js
-                .catalog__wrapper
-                    .catalog__button
+                .navbar__overlay
+                .navbar__wrapper
+                    .navbar__button#navbarButton
                         .button__main
-                            .button__image
+                            .button__main-image
                                 +img('catalog-button.svg')
-                            .button__text Каталог товаров
+                            .button__main-text Каталог товаров
                         .button__arrow
                             +img('arrow-down.svg')
-                    .catalog__menu-wrapper
-                        .catalog__menu
-                            .menu__category
-                                .category__wrapper
-                                    .category__name Душевые кабины
-                                    .category__arrow
-                                        include ./assets/images/arrow-down.svg
-                                .subcategories__wrapper
-                                    .subcategory__name Душевые кабины с паром
-                                    .subcategory__name Душевые кабины без пара
-                            .menu__category
-                                .category__wrapper
-                                    .category__name Душевые кабины
-                                    .category__arrow
-                                        include ./assets/images/arrow-down.svg
-                                .subcategories__wrapper
-                                    .subcategory__name Душевые кабины с паром
-                                    .subcategory__name Душевые кабины без пара
-                            .menu__category
-                                .category__wrapper
-                                    .category__name Душевые кабины
-                                    .category__arrow
-                                        include ./assets/images/arrow-down.svg
-                                .subcategories__wrapper
-                                    .subcategory__name Душевые кабины с паром
-                                    .subcategory__name Душевые кабины без пара
+                    ul.navbar__menu
+                        li.menu__item.trig
+                            .menu__item-top
+                                p Душевые кабины
+                                include ./assets/images/arrow-down.svg
+                            ul.dropdown-menu
+                                li.dropdown-item
+                                    a(href='javascript:void(0)') Душевые кабины с паром
+                                li.dropdown-item
+                                    a(href='javascript:void(0)') Душевые кабины без пара
+                        li.menu__item.trig
+                            .menu__item-top
+                                p Душевые ограждения
+                                include ./assets/images/arrow-down.svg
+                            ul.dropdown-menu
+                                li.dropdown-item
+                                    a(href='javascript:void(0)') Душевые ограждения
+                                li.dropdown-item
+                                    a(href='javascript:void(0)') Двери в нишу
                 .products__wrapper
                     h1 Душевые кабины
                     .products__grid

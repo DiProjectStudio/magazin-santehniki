@@ -29,90 +29,106 @@
   }
 }
 
-.catalog__button {
-  @include flexCenterBetween;
-
-  &.active {
-    .button__arrow {
-      transform: rotate(180deg);
-    }
-  }
-}
-
-.button__main {
-  @include flexAlignCenter;
-  gap: 14px;
-}
-
-.button__arrow {
-  @include breakpoint(md) {
-    display: none;
-  }
-}
-
-.catalog__wrapper-js {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: $gray-white-65;
-  backdrop-filter: blur(7.5px);
-  width: 100vw;
-  height: 120vh;
-  z-index: 3;
-  isolation: isolate;
+.navbar__layout {
   display: none;
-  padding: 139px 16px;
 
   &.active {
-    display: block;
+    position: absolute;
+    top: -50px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: $gray-white-65;
+    backdrop-filter: blur(7.5px);
+    width: 100vw;
+    height: 120vh;
+    z-index: 2;
+    isolation: isolate;
+    display: none;
+
+  }
+}
+
+.navbar__wrapper {
+  border-radius: 6px;
+  background: $white;
+
+  &.active {
+    position: absolute;
   }
 
-  .catalog__wrapper {
-    background: $white;
-    padding: 6px;
-    border-radius: 6px;
-  }
+  .navbar__button {
+    @include flexCenterBetween;
+    margin-bottom: 6px;
 
-  .catalog__menu-wrapper {
-    display: block;
+    &.active {
+      .button__main {
+        @include flexAlignCenter;
+        gap: 14px;
 
-    .catalog__menu {
-      .menu__category {
-        padding: 12px 6px;
+        .button__main-image {
+
+        }
+
+        .button__main-text {
+
+        }
+      }
+
+      .button__arrow {
+        transform: rotate(180deg);
       }
     }
-  }
-}
 
+    .button__main {
+      @include flexAlignCenter;
+      gap: 14px;
 
-.catalog__menu-wrapper {
-  display: none;
-}
+      .button__main-image {
 
+      }
 
-.menu__category {
-  .category__wrapper {
-    @include flexCenterBetween;
+      .button__main-text {
 
-    .category__name {
-
+      }
     }
 
-    .category__arrow {
+    .button__arrow {
 
     }
   }
 
-  .subcategories__wrapper {
+  .navbar__menu {
+    .menu__item {
+      padding: 12px 6px 0;
+
+      .menu__item-top {
+        @include flexCenterBetween;
+
+        &.active {
+          svg {
+            transform: rotate(180deg);
+          }
+        }
+      }
+
+      .dropdown-menu {
+        display: grid;
+        gap: 2px;
+        cursor: pointer;
+        height: 0;
+        transition: all 0.6s;
+        overflow: hidden;
+
+        li {
+          padding: 12px 16px;
+
+          a {
+
+          }
+        }
+      }
+    }
 
   }
-
 }
-
-
-
-
-
-

@@ -131,24 +131,44 @@
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    buttonAction();
-    // categoryAction();
+    navbarAction();
+
+    dropdownMenuAction();
 });
 
-function buttonAction() {
-    const catalogButton = document.querySelector('.catalog__button');
-    const catalogWrapper = document.querySelector('.catalog__wrapper');
-    const catalogWrapperJs = document.querySelector('.catalog__wrapper-js');
-
-    catalogButton.addEventListener('click', () => {
-        catalogButton.classList.toggle('active'); // добавляет класс active к кнопке Каталог товаров
-        catalogButton.nextElementSibling.classList.toggle('active'); // переворачивает стрелку у кнопки
-        catalogWrapper.classList.toggle('active'); // делает видимым основные категории
-        catalogWrapperJs.appendChild(catalogWrapper); // переносит 
-        catalogWrapperJs.classList.toggle('active');
-
-    });
+function navbarAction() {
+    const navbarButton = document.getElementById('navbarButton');
+    if (navbarButton) {
+        navbarButton.addEventListener('click', (e) => {
+            navbarButton.classList.toggle('active');
+        });
+    }
 }
+
+function dropdownMenuAction() {
+    const dropdownMenu = document.querySelector('.dropdown-menu');
+    const triggers = document.querySelectorAll('.trig');
+    triggers.forEach(trigger => trigger.addEventListener('click', () => {
+        const dropdown = trigger.children[1];
+        let totalHeight = 0;
+        dropdown.querySelectorAll('.dropdown-item').forEach((el, index) => {
+            totalHeight += el.clientHeight;
+        });
+
+        if (dropdown.style.height === "0px" || dropdown.style.height === "") {
+            dropdown.style.height = totalHeight + "px";
+            dropdown.previousElementSibling.classList.add('active');
+        } else {
+            dropdown.style.height = "0px";
+            dropdown.previousElementSibling.classList.remove('active');
+        }
+    }));
+}
+
+
+
+
+
 
 
 

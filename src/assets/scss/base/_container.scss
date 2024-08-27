@@ -1,7 +1,7 @@
 :root {
   --container: 16px;
 
-  //--variable: 20px;
+  --variable: 20px;
 
   @include breakpoint(md) {
     --container: 20px;
@@ -13,12 +13,6 @@
 
   @include breakpoint(hd) {
     --container: 20px;
-    //--variable: 175px;
-    --variable: 20px;
-  }
-
-  @include breakpoint(uhd) {
-    --container: 0;
   }
 }
 $container: var(--container);

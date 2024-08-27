@@ -43,7 +43,7 @@ $(document).ready(function () {
                 centeredSlidesBounds: true,
                 spaceBetween: 20,
                 loop: true,
-                effect: 'fade',
+                // effect: 'fade',
                 // fadeEffect: {
                 //     crossFade: true
                 // },
@@ -53,7 +53,6 @@ $(document).ready(function () {
                 // },
             },
         },
-        // infinite: true
     });
 
     const thumbs = new Swiper('.product__images_thumbs.swiper', {

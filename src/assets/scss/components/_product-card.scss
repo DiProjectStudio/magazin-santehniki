@@ -18,6 +18,10 @@
       padding: 36px 0;
     }
 
+    @include breakpoint(lg) {
+      padding: 24px 0;
+    }
+
     img {
       width: 40%;
       height: 80%;

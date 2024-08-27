@@ -445,123 +445,93 @@
   & .slider-arrows {
     display: none;
     position: absolute;
-    top: 160px;
-    left: 0;
+    top: 150px;
+    left: calc(50% - 33px);
+
 
     @include breakpoint(md) {
-      display: block;
+      @include flexCenterCenter;
+      gap: 24px;
     }
   }
 }
-
-
-//.style .swiper-slide {
-//  border-radius: 5px;
-//  overflow: hidden;
-//  isolation: isolate;
-//  height: 314px;
-//  //object-fit: cover;
-//}
-//
-//.swiper-slide {
-//  &.swiper-slide-active {
-//    height: 76px!important;
-//    margin-top: 64px;
-//    width: 100px!important;
-//  }
-//
-//  &.swiper-slide-next {
-//    height: 140px!important;
-//    width: 100px!important;
-//
-//  }
-//}
-//.swiper-slide-next + .swiper-slide {
-//  width: 222px!important;
-//  height: 212px!important;
-//}
-//.swiper-slide-next + .swiper-slide + .swiper-slide {
-//  height: 140px;
-//  width: 100px;
-//}
-//
-//.swiper-slide-next + .swiper-slide + .swiper-slide + .swiper-slide {
-//  height: 76px!important;
-//  margin-top: 64px;
-//  width: 100px!important;
-//}
 
 .style {
   position: relative;
 
   &__slider {
-    width: 100%;
+    transition: .6s ease;
+  }
+
+  .swiper-wrapper {
+    transition: .6s ease;
   }
 
   .swiper-slide {
-    height: 314px;
-    display: flex;
-    flex-direction: column;
+    width: 100%;
+    height: calc((100vw - var(--container) * 2) * 0.96);
+    transition: .6s ease;
 
     @include breakpoint(md) {
-      --width: calc((100vw - var(--variable) * 2) / 12 * 2 - 20px);
-      width: var(--width);
+      --width: calc((100vw - var(--variable) * 2) / 12 * 2);
+      width: calc(var(--width) + 40px);
       height: calc(var(--width) * 0.7);
     }
 
     @include breakpoint(hd) {
-      --width: calc((1600px - var(--variable) * 2) / 12 * 2 - 20px);
-      width: var(--width);
+      //--width: calc((1600px - var(--variable) * 2) / 12 * 2 - 20px);
+      //width: var(--width);
     }
 
     .style__image {
       //height: 75px;
       //margin-top: auto;
-      //height: 100%;
+      height: 100%;
       border-radius: 5px;
       overflow: hidden;
       isolation: isolate;
+      transition: .6s ease;
     }
 
     &.swiper-slide-active {
-      --width: calc((100vw - var(--variable) * 2) / 12 * 4 - 20px);
-      width: var(--width);
-      height: calc(var(--width) * 0.9);
+      width: 100%;
+      height: calc((100vw - var(--container) * 2) * 0.96);
 
       @include breakpoint(md) {
+          --width: calc((100vw - var(--variable) * 2) / 12 * 4);
+          width: calc(var(--width) + 40px);
+          height: calc(var(--width) * 0.9);
       }
+    }
 
-      @include breakpoint(hd) {
-        --width: calc((1600px - var(--variable) * 2) / 12 * 4 - 20px);
-        width: var(--width);
-      }
-
-      .swiper-slide {
-        height: 314px;
-      }
+    @include breakpoint(hd) {
+      //--width: calc((1600px - var(--variable) * 2) / 12 * 4 - 20px);
+      //width: var(--width);
     }
 
     &.swiper-slide-prev,
     &.swiper-slide-next {
-      height: calc(var(--width) * 1.4);
-      @include breakpoint(md) {
+      width: 100%;
+      height: calc((100vw - var(--container) * 2) * 0.96);
 
+      @include breakpoint(md) {
+        --width: calc((100vw - var(--variable) * 2) / 12 * 2);
+        width: calc(var(--width) + 40px);
+        height: calc(var(--width) * 1.4);
       }
 
       @include breakpoint(hd) {
-        --width: calc((1600px - var(--variable) * 2) / 12 * 2 - 20px);
-        width: var(--width);
+        //--width: calc((1600px - var(--variable) * 2) / 12 * 2 - 20px);
+        //width: var(--width);
       }
 
-      //.style__image {
-      //  height: 100%;
-      //}
+
     }
   }
 }
 
 
-//////////////////////////////ADVANTAGES//////////////////
+////////////////////////////////////////ADVANTAGES///////////////////////////////////////////
 
 .advantages {
   margin-bottom: 96px;

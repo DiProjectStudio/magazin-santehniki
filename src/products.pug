@@ -12,11 +12,9 @@ block main
         .navbar__close#navbarClose
             +img('x.svg')
         .container
+            .navbar__overlay
             .products__inner
-                .navbar__overlay
-
                 .navbar__wrapper
-
                     .navbar__button#navbarButton
                         .button__main
                             .button__main-image
@@ -161,6 +159,11 @@ block main
                             while n < 8
                                 include components/_product-card
                                 - n++;
+                    include components/_pagination
+                    .seo-text
+                        .section-title СЕО текст
+                        p.text-overflow Компания SSWW  — это китайский производитель сантехнических изделий, который специализируется на разработке и производстве различных сантехнических решений, включая смесители, душевые системы, унитазы и другие аксессуары для ванных комнат и кухонь. SSWW известна своим акцентом на качество, инновации и современный дизайн, а также использует передовые технологии в производственном процессе. Компания активно экспортирует свою продукцию на международные рынки и стремится удовлетворить потребности клиентов, предлагая широкий ассортимент товаров.
+                        .link.show-more-btn подробнее
 
 
 

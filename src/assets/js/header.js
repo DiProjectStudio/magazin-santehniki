@@ -6,3 +6,21 @@ document.addEventListener('scroll', function() {
         header.style.transform = 'translateY(0)';
     }
 });
+
+document.addEventListener('DOMContentLoaded', ()=> {
+    deleteLinkClass();
+});
+
+document.addEventListener('resize', () => {
+    deleteLinkClass();
+})
+
+
+
+function deleteLinkClass() {
+    if (window.innerWidth < 1200) {
+        document.querySelector('.header__inner_call-text a').classList.remove('link');
+    } else {
+        document.querySelector('.header__inner_call-text a').classList.add('link');
+    }
+}

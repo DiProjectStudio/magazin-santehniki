@@ -20,12 +20,13 @@ body b {
 }
 
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 1px;
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-track {
   border-radius: 3px;
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -35,7 +36,7 @@ body b {
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: $prime $prime;
+  scrollbar-color: $prime transparent;
 }
 
 ::-webkit-scrollbar-button {
@@ -423,6 +424,10 @@ a {
   &:active {
     color: $btn-click;
   }
+}
+
+.show-more-btn {
+  margin-left: 12px;
 }
 
 

@@ -5,13 +5,17 @@
   h1 {
     margin-bottom: 20px;
 
-    @include breakpoint(md) {
-
+    @include breakpoint(lg) {
+      margin-bottom: 35px;
     }
   }
 
   &__inner {
-
+    @include breakpoint(lg) {
+      display: grid;
+      grid-template-columns: 2fr 10fr;
+      gap: 20px;
+    }
   }
   .navbar__close {
     display: none;
@@ -38,6 +42,10 @@
 
   .products__wrapper {
     margin-top: 30px;
+
+    @include breakpoint(lg) {
+      margin-top: 0;
+    }
   }
 
   &__grid {
@@ -47,6 +55,27 @@
 
     @include breakpoint(md) {
       grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include breakpoint(lg) {
+      grid-template-columns: repeat(5, 1fr);
+    }
+  }
+
+  .seo-text {
+    display: none;
+    margin-left: 2fr;
+
+    .section-title {
+      margin-bottom: 24px;
+    }
+    @include breakpoint(md) {
+      display: block;
+      margin-top: 34px;
+    }
+
+    @include breakpoint(hd) {
+      margin-top: 110px;
     }
   }
 }
@@ -81,13 +110,20 @@
   position: relative;
   top: 0;
 
+
+  @include breakpoint(lg) {
+    height: 100%;
+  }
+
   &.active {
     position: absolute;
     z-index: 3;
     width: calc(100vw - var(--container) * 2);
     max-width: 350px;
-    height: 70vh;
-    top: 20px;
+    height: 65vh;
+    top: calc(100vh - 60%);
+    isolation: isolate;
+
     @include breakpoint(md) {
       width: calc(100vw - var(--container) * 2);
       bottom: calc(100vh - 220px);
@@ -95,6 +131,7 @@
       padding: 0;
       max-width: 100%;
       height: fit-content;
+      top: 0;
     }
   }
 
@@ -103,6 +140,8 @@
   .navbar__button {
     @include flexCenterBetween;
     margin-bottom: 6px;
+
+
 
     &.active {
       .button__main {
@@ -122,6 +161,10 @@
       padding: 6px;
       margin-bottom: 0;
       border-radius: 10px 0 0 0;
+    }
+
+    @include breakpoint(lg) {
+      width: 100%;
     }
 
     .button__main {
@@ -155,10 +198,19 @@
       }
     }
 
+    @include breakpoint(lg) {
+      opacity: 1;
+      height: 650px;
+      overflow: auto;
+    }
+
     .menu__item {
       padding: 12px 6px;
-      border-bottom: 1px solid $gray-white-65;
       font-size: 14px;
+
+      &:not(:last-child) {
+      border-bottom: 1px solid $gray-white-65;
+    }
 
       @include breakpoint(md) {
         padding: 12px;
@@ -166,10 +218,15 @@
 
       .menu__item-top {
         @include flexCenterBetween;
+        cursor: pointer;
 
         svg {
           @include breakpoint(md) {
             transform: rotate(270deg);
+          }
+
+          @include breakpoint(lg) {
+            transform: rotate(180deg);
           }
         }
 
@@ -181,6 +238,10 @@
 
             @include breakpoint(md) {
               transform: rotate(90deg);
+            }
+
+            @include breakpoint(lg) {
+              transform: rotate(0deg);
             }
 
             path {

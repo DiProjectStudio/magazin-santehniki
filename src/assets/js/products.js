@@ -146,9 +146,20 @@ function navbarAction() {
     const navbarMenu = document.querySelector('.navbar__menu');
     const dropdownJS = document.querySelector('.dropdown-menu-js');
     const triggers = document.querySelectorAll('.trig');
+    const navbarClose = document.getElementById('navbarClose');
+
+
 
     if (navbarButton) {
+
+
         navbarButton.addEventListener('click', (e) => {
+
+            if (dropdownJS.classList.contains('active')) {
+                navbarClose.style.right = '20px'
+            } else {
+                navbarClose.style.right = '50%'
+            }
             navbarButton.classList.toggle('active');
             navbarOverlay.classList.toggle('active');
             navbarWrapper.classList.toggle('active');
@@ -161,6 +172,8 @@ function navbarAction() {
             });
 
             if (navbarButton.classList.contains('active')) {
+                navbarClose.classList.add('active');
+
                 document.body.style.overflow = 'hidden';
                 document.addEventListener('click', function (event) {
                     event.stopPropagation();
@@ -170,11 +183,13 @@ function navbarAction() {
                         navbarButton.classList.remove('active');
                         navbarMenu.classList.remove('active');
                         dropdownJS.classList.remove('active');
+                        navbarClose.classList.remove('active');
                         removeDropdownElements(dropdownJS);
                     }
                 });
             } else {
                 document.body.style.overflow = '';
+                navbarClose.classList.remove('active');
             }
 
         });
@@ -183,6 +198,11 @@ function navbarAction() {
 
 function dropdownMenuAction() {
     const triggers = document.querySelectorAll('.trig');
+    const navbarMenu = document.querySelector('.navbar__menu');
+    const dropdownJS = document.querySelector('.dropdown-menu-js');
+    const navbarClose = document.getElementById('navbarClose');
+
+
 
     triggers.forEach(trigger => trigger.addEventListener('click', (event) => {
 
@@ -204,9 +224,8 @@ function dropdownMenuAction() {
         }
 
         if (window.innerWidth >= 744 && window.innerWidth < 1200) {
-            const dropdownJS = document.querySelector('.dropdown-menu-js');
-            const isActive = trigger.classList.contains('active');
 
+            const isActive = trigger.classList.contains('active');
 
             // Убираем класс active у всех триггеров
             triggers.forEach(t => t.classList.remove('active'));
@@ -231,6 +250,9 @@ function dropdownMenuAction() {
 
             if (!dropdownJS.classList.contains('active')) {
                 removeDropdownElements(dropdownJS);
+                navbarClose.style.right = '';
+            } else {
+                navbarClose.style.right = '20px'
             }
         }
     }));

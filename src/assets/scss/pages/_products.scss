@@ -13,6 +13,28 @@
   &__inner {
 
   }
+  .navbar__close {
+    display: none;
+
+    @include breakpoint(md) {
+      width: 26px;
+      height: 26px;
+      padding: 7px;
+      border-radius: 6px;
+      position: absolute;
+      z-index: 4;
+      background: $prime;
+      isolation: isolate;
+      top: 0;
+      right: 50%;
+      transition: .2s ease;
+
+      &.active {
+        @include flexCenterCenter;
+      }
+    }
+  }
+
 
   .products__wrapper {
     margin-top: 30px;
@@ -72,8 +94,11 @@
       background: transparent;
       padding: 0;
       max-width: 100%;
+      height: fit-content;
     }
   }
+
+
 
   .navbar__button {
     @include flexCenterBetween;

@@ -9,10 +9,14 @@ include components/_breadcrumbs
 block main
     +breadcrumbs('', 'Каталог', 'Душевые кабины')
     section.products
+        .navbar__close#navbarClose
+            +img('x.svg')
         .container
             .products__inner
                 .navbar__overlay
+
                 .navbar__wrapper
+
                     .navbar__button#navbarButton
                         .button__main
                             .button__main-image

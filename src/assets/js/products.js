@@ -170,7 +170,7 @@ function navbarAction() {
                         navbarButton.classList.remove('active');
                         navbarMenu.classList.remove('active');
                         dropdownJS.classList.remove('active');
-
+                        removeDropdownElements(dropdownJS);
                     }
                 });
             } else {
@@ -183,6 +183,7 @@ function navbarAction() {
 
 function dropdownMenuAction() {
     const triggers = document.querySelectorAll('.trig');
+
     triggers.forEach(trigger => trigger.addEventListener('click', (event) => {
 
         if (window.innerWidth < 744) {
@@ -206,16 +207,18 @@ function dropdownMenuAction() {
             const dropdownJS = document.querySelector('.dropdown-menu-js');
             const isActive = trigger.classList.contains('active');
 
+
             // Убираем класс active у всех триггеров
             triggers.forEach(t => t.classList.remove('active'));
+
             // Если текущий триггер не был активен, добавляем класс active
             if (!isActive) {
                 trigger.classList.add('active');
                 dropdownJS.classList.add('active');
                 removeDropdownElements(dropdownJS);
-                dropdownJS.appendChild(trigger.nextElementSibling.cloneNode(true));
-            } else {
-
+                if (trigger.nextElementSibling) {
+                    dropdownJS.appendChild(trigger.nextElementSibling.cloneNode(true));
+                }
             }
 
             // Если хотя бы один пункт меню активен, то боковое меню с подкатегориями будет активным
@@ -223,6 +226,10 @@ function dropdownMenuAction() {
                 dropdownJS.classList.add('active');
             } else {
                 dropdownJS.classList.remove('active');
+                removeDropdownElements(dropdownJS);
+            }
+
+            if (!dropdownJS.classList.contains('active')) {
                 removeDropdownElements(dropdownJS);
             }
         }

@@ -14,7 +14,7 @@
     @include flexCenterBetween;
 
     &_menu {
-      transition: .3s ease;
+      transition: .6s ease;
       isolation: isolate;
 
       @include breakpoint(lg) {

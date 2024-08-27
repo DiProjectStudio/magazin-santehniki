@@ -153,12 +153,10 @@ block main
                 .products__wrapper
                     h1 Душевые кабины
                     .products__grid
-                        include components/_product-card
-                        include components/_product-card
-                        include components/_product-card
-                        include components/_product-card
-                        include components/_product-card
-                        include components/_product-card
+                        - var n = 0;
+                            while n < 8
+                                include components/_product-card
+                                - n++;
 
 
 

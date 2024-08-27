@@ -54,22 +54,24 @@
   border-radius: 6px;
   background: $white;
   transition: .6s ease;
-  top: -60px;
   padding: 6px;
   overflow: auto;
   position: relative;
+  top: 0;
 
   &.active {
     position: absolute;
     z-index: 3;
     width: calc(100vw - var(--container) * 2);
-    bottom: calc(100vh - 400px);
-    top: 0;
+    max-width: 350px;
+    height: 70vh;
+    top: 20px;
     @include breakpoint(md) {
       width: calc(100vw - var(--container) * 2);
-      bottom: calc(100vh - 600px);
+      bottom: calc(100vh - 220px);
       background: transparent;
       padding: 0;
+      max-width: 100%;
     }
   }
 
@@ -122,7 +124,7 @@
 
       @include breakpoint(md) {
         width: 50%;
-        border-radius: 0 0 10px 10px;
+        border-radius: 0 0 0 10px;
       }
     }
 
@@ -185,15 +187,19 @@
   position: absolute;
   background: #E5EAFC;
   border-radius: 0 10px 10px 0;
-  //width: 0;
-  width: calc(50vw - var(--container));
+  width: 0;
+  //width: calc(50vw - var(--container));
   //bottom: calc(100vh - 600px);
   z-index: 3;
   left: 50%;
   top: 0;
   height: 100%;
   //display: none;
-  transition: .6s ease;
+  transition: .2s ease;
+  display: none;
+  @include breakpoint(md) {
+    display: block;
+  }
 
   &.active {
     width: calc(50vw - var(--container));

@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
     dropdownMenuAction();
 });
 
-document.addEventListener('resize', ()=> {
+document.addEventListener('resize', () => {
     dropdownMenuAction();
 })
 
@@ -144,6 +144,8 @@ function navbarAction() {
     const navbarOverlay = document.querySelector('.navbar__overlay');
     const navbarWrapper = document.querySelector('.navbar__wrapper');
     const navbarMenu = document.querySelector('.navbar__menu');
+    const dropdownJS = document.querySelector('.dropdown-menu-js');
+    const triggers = document.querySelectorAll('.trig');
 
     if (navbarButton) {
         navbarButton.addEventListener('click', (e) => {
@@ -151,6 +153,13 @@ function navbarAction() {
             navbarOverlay.classList.toggle('active');
             navbarWrapper.classList.toggle('active');
             navbarMenu.classList.toggle('active');
+
+            triggers.forEach(item => {
+                if (item.classList.contains('active')) {
+                    item.classList.remove('active');
+                }
+            });
+
             if (navbarButton.classList.contains('active')) {
                 document.body.style.overflow = 'hidden';
                 document.addEventListener('click', function (event) {
@@ -159,7 +168,9 @@ function navbarAction() {
                         navbarWrapper.classList.remove('active');
                         navbarOverlay.classList.remove('active');
                         navbarButton.classList.remove('active');
-                        navbarMenu.classList.remove('active')
+                        navbarMenu.classList.remove('active');
+                        dropdownJS.classList.remove('active');
+
                     }
                 });
             } else {
@@ -173,6 +184,7 @@ function navbarAction() {
 function dropdownMenuAction() {
     const triggers = document.querySelectorAll('.trig');
     triggers.forEach(trigger => trigger.addEventListener('click', (event) => {
+
         if (window.innerWidth < 744) {
             const dropdown = trigger.nextElementSibling;
             let totalHeight = 0;
@@ -191,14 +203,38 @@ function dropdownMenuAction() {
         }
 
         if (window.innerWidth >= 744 && window.innerWidth < 1200) {
-            const dropdownJS = document.querySelectorAll('.dropdown-menu-js');
-            // по клику на категорию, происходит перенос подкатегорий во dropdown-js
+            const dropdownJS = document.querySelector('.dropdown-menu-js');
+            const isActive = trigger.classList.contains('active');
 
+            // Убираем класс active у всех триггеров
+            triggers.forEach(t => t.classList.remove('active'));
+            // Если текущий триггер не был активен, добавляем класс active
+            if (!isActive) {
+                trigger.classList.add('active');
+                dropdownJS.classList.add('active');
+                removeDropdownElements(dropdownJS);
+                dropdownJS.appendChild(trigger.nextElementSibling.cloneNode(true));
+            } else {
+
+            }
+
+            // Если хотя бы один пункт меню активен, то боковое меню с подкатегориями будет активным
+            if ([...triggers].some(item => item.classList.contains('active'))) {
+                dropdownJS.classList.add('active');
+            } else {
+                dropdownJS.classList.remove('active');
+                removeDropdownElements(dropdownJS);
+            }
         }
-
     }));
+}
 
-
+function removeDropdownElements(parent) {
+    if (parent.childNodes.length > 0) {
+        while (parent.firstChild) {
+            parent.removeChild(parent.firstChild);
+        }
+    }
 }
 
 

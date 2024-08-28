@@ -442,7 +442,7 @@
     }
   }
 
-  & .slider-arrows {
+  .slider-arrows {
     display: none;
     position: absolute;
     top: 150px;
@@ -453,6 +453,10 @@
       @include flexCenterCenter;
       gap: 24px;
     }
+
+    .slider-arrow--prev, .slider-arrow--next {
+      cursor: pointer;
+    }
   }
 }
 
@@ -460,11 +464,10 @@
   position: relative;
 
   &__slider {
-    transition: .6s ease;
-  }
-
-  .swiper-wrapper {
-    transition: .6s ease;
+    @include breakpoint(md) {
+      --width: calc((100vw - var(--variable) * 2) / 12 * 4);
+      height: calc(var(--width) * 0.9);
+    }
   }
 
   .swiper-slide {
@@ -474,23 +477,19 @@
 
     @include breakpoint(md) {
       --width: calc((100vw - var(--variable) * 2) / 12 * 2);
-      width: calc(var(--width) + 40px);
       height: calc(var(--width) * 0.7);
     }
 
     @include breakpoint(hd) {
-      //--width: calc((1600px - var(--variable) * 2) / 12 * 2 - 20px);
-      //width: var(--width);
+      --width: calc((1600px - var(--variable) * 2) / 12 * 2);
+      width: var(--width);
     }
 
     .style__image {
-      //height: 75px;
-      //margin-top: auto;
       height: 100%;
       border-radius: 5px;
       overflow: hidden;
       isolation: isolate;
-      transition: .6s ease;
     }
 
     &.swiper-slide-active {
@@ -498,15 +497,9 @@
       height: calc((100vw - var(--container) * 2) * 0.96);
 
       @include breakpoint(md) {
-          --width: calc((100vw - var(--variable) * 2) / 12 * 4);
-          width: calc(var(--width) + 40px);
-          height: calc(var(--width) * 0.9);
+        --width: calc((100vw - var(--variable) * 2) / 12 * 4);
+        height: calc(var(--width) * 0.9);
       }
-    }
-
-    @include breakpoint(hd) {
-      //--width: calc((1600px - var(--variable) * 2) / 12 * 4 - 20px);
-      //width: var(--width);
     }
 
     &.swiper-slide-prev,
@@ -516,15 +509,12 @@
 
       @include breakpoint(md) {
         --width: calc((100vw - var(--variable) * 2) / 12 * 2);
-        width: calc(var(--width) + 40px);
-        height: calc(var(--width) * 1.4);
+        height: calc(var(--width) * 1.1);
       }
 
       @include breakpoint(hd) {
-        //--width: calc((1600px - var(--variable) * 2) / 12 * 2 - 20px);
-        //width: var(--width);
+        --width: calc((1600px - var(--variable) * 2) / 12 * 2 - 20px);
       }
-
 
     }
   }

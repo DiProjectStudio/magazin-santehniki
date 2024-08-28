@@ -38,19 +38,19 @@ $(document).ready(function () {
         loop: slides.length >= 8,
         breakpoints: {
             744: {
-                slidesPerView: 'auto',
+                slidesPerView: 3,
                 centeredSlides: true,
                 centeredSlidesBounds: true,
                 spaceBetween: 20,
                 loop: true,
-                // effect: 'fade',
-                // fadeEffect: {
-                //     crossFade: true
-                // },
-                // freeMode: {
-                //     enabled: true,
-                //     sticky: true,
-                // },
+                effect: 'fade',
+                fadeEffect: {
+                    crossFade: true
+                },
+                freeMode: {
+                    enabled: true,
+                    sticky: true,
+                },
             },
         },
     });

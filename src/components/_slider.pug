@@ -1,0 +1,9 @@
+include ../includes/_mixins
+
+.slider
+    .slides
+        +img('pages/main/style-1.jpg').slide.active
+        +img('pages/main/style-2.jpg').slide
+        +img('pages/main/style-3.jpg').slide
+    button.prev назад
+    button.next вперед

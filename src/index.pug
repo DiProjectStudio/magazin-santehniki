@@ -108,9 +108,9 @@ block main
                 .style__subtitle Уже больше 30 лет ssww создают дизайнерскую сантехнику, воплощающие в себе лучшие традиции производства и самые современные технологии.
                 .slider-arrows
                     .slider-arrow--prev
-                        include ./assets/images/arrows/arrow_big-prev.svg
+                        +img('arrows/arrow_big-prev.svg')
                     .slider-arrow--next
-                        include ./assets/images/arrows/arrow_big-next.svg
+                        +img('arrows/arrow_big-next.svg')
             .style__slider.swiper
                 .swiper-wrapper
                     .swiper-slide
@@ -137,6 +137,8 @@ block main
                     .swiper-slide
                         .style__image
                             +img('pages/main/style-3.jpg')
+
+            //include components/_slider
 
     section.advantages
         .container

@@ -7,6 +7,10 @@
       grid-template-columns: repeat(2, 6fr);
       gap: 20px;
     }
+
+    @include breakpoint(xl) {
+      gap: 157px;
+    }
   }
 }
 
@@ -159,10 +163,17 @@
       &_title {
         font-size: 24px;
         align-self: flex-end;
+
+        @include breakpoint(lg) {
+          font-size: 36px;
+        }
+
+        @include breakpoint(hd) {
+          font-size: 48px;
+        }
       }
 
       &_description {
-
         align-self: flex-start;
       }
 
@@ -554,6 +565,10 @@
   background: #E5EAFC;
   border-radius: 10px;
   padding: 16px 20px;
+
+  @include breakpoint(md) {
+    padding: 16px 24px;
+  }
 
   @include breakpoint(lg) {
     padding: 24px;

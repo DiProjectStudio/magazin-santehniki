@@ -453,6 +453,51 @@ a {
   background: $gray-white-65 !important;
 }
 
+.hover--underline {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    background-color: $black;
+    height: 1px;
+    bottom: -4px;
+    left: 0;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .3s ease-in-out;
+  }
+
+  &:hover::before {
+    transform-origin: left;
+    transform: scaleX(1);
+  }
+}
+
+.hover--color-prime {
+  transition: .3s ease;
+  &:hover {
+    color: $btn-hover;
+  }
+
+  &:active {
+    color: $btn-click;
+  }
+}
+
+.hover--color-dark-blue {
+  transition: .3s ease;
+
+  &:hover {
+    color: $btn-hover;
+  }
+
+  &:active {
+    color: $btn-click;
+  }
+}
+
 
 /////////////////////
 /// CARDS & CATALOG

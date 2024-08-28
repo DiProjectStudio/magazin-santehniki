@@ -63,6 +63,25 @@
         gap: 48px;
       }
 
+      &-text {
+        a {
+          @include breakpoint(lg) {
+            color: $btn-default;
+            font-style: normal;
+            font-weight: 600;
+            position: relative;
+            text-decoration: underline;
+            cursor: pointer;
+            &:hover {
+              color: $btn-hover;
+            }
+
+            &:active {
+              color: $btn-click;
+            }
+          }
+        }
+      }
 
       &-numbers {
         display: grid;
@@ -75,6 +94,11 @@
         font-style: normal;
         font-weight: 500;
         line-height: 120%;
+
+        a:hover {
+          color: $prime;
+          transition: .3s ease;
+        }
 
         @include breakpoint(xl) {
           font-size: 20px;
@@ -120,23 +144,7 @@
       font-size: 16px;
     }
 
-    &::before {
-      content: '';
-      position: absolute;
-      width: 100%;
-      background-color: $black;
-      height: 1px;
-      bottom: -4px;
-      left: 0;
-      transform-origin: right;
-      transform: scaleX(0);
-      transition: transform .3s ease-in-out;
-    }
 
-    &:hover::before {
-      transform-origin: left;
-      transform: scaleX(1);
-    }
   }
 }
 
@@ -156,7 +164,6 @@
   z-index: 4;
   isolation: isolate;
 
-
   @include breakpointCustom(361px) {
     border-radius: 10px;
   }
@@ -172,7 +179,6 @@
 
   .header__inner_navbar {
     display: block;
-
 
     &-items {
       grid-auto-flow: row;
@@ -200,7 +206,6 @@
       font-weight: 500;
       line-height: 150%;
       text-transform: uppercase;
-
 
       &::before {
         background: $black;

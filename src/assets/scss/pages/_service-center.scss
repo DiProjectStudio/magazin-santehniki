@@ -20,6 +20,10 @@
       gap: 20px;
     }
 
+    @include breakpoint(xl) {
+      gap: 157px;
+    }
+
     &_text {
       text-align: center;
 
@@ -118,6 +122,18 @@
       padding: 16px 20px;
       border-radius: 20px;
       background: #E5EAFC;
+
+      @include breakpoint(md) {
+        padding: 12px 24px;
+      }
+
+      @include breakpoint(lg) {
+        padding: 24px;
+      }
+
+      @include breakpoint(xl) {
+        padding: 48px;
+      }
 
       &_head {
         @include flexCenterBetween;

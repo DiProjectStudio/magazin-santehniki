@@ -1,5 +1,3 @@
-
-
 const showBtn = document.querySelector('.show-more-btn');
 
 if (showBtn) {

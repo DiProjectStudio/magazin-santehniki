@@ -122,17 +122,15 @@
     width: calc(100vw - var(--container) * 2);
     max-width: 350px;
     height: 65vh;
-    top: calc(100vh - 60%);
+    top: 0;
     isolation: isolate;
 
     @include breakpoint(md) {
       width: calc(100vw - var(--container) * 2);
-      bottom: calc(100vh - 220px);
       background: transparent;
       padding: 0;
       max-width: 100%;
       height: fit-content;
-      top: 0;
     }
   }
 
@@ -163,6 +161,7 @@
 
     @include breakpoint(lg) {
       width: 100%;
+      cursor: default;
     }
 
     .button__main {
@@ -225,7 +224,7 @@
           }
 
           @include breakpoint(lg) {
-            transform: rotate(180deg);
+            transform: rotate(0deg);
           }
         }
 
@@ -244,7 +243,7 @@
             }
 
             @include breakpoint(lg) {
-              transform: rotate(0deg);
+              transform: rotate(180deg);
             }
 
             path {
@@ -291,8 +290,6 @@
   background: #E5EAFC;
   border-radius: 0 10px 10px 0;
   width: 0;
-  //width: calc(50vw - var(--container));
-  //bottom: calc(100vh - 600px);
   z-index: 3;
   left: 50%;
   top: 0;

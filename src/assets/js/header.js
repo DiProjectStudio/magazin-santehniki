@@ -6,11 +6,3 @@ document.addEventListener('scroll', function() {
         header.style.transform = 'translateY(0)';
     }
 });
-
-document.addEventListener('DOMContentLoaded', ()=> {
-    deleteLinkClass();
-});
-
-document.addEventListener('resize', () => {
-    deleteLinkClass();
-})

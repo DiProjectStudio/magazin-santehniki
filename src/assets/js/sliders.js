@@ -83,21 +83,3 @@ $(document).ready(function () {
 
 });
 
-// effect: 'coverflow',
-//     grabCursor: true,
-//     slidesPerView: 3,
-//     centeredSlides: true,
-//     loop: slides.length >=8,
-//     coverflowEffect: {
-//     rotate: 20, // Угол поворота
-//         stretch: 0, // Растяжение
-//         depth: 450, // Глубина
-//         modifier: 1, // Модификатор
-//         slideShadows: false, // Тени слайдов
-// },
-// navigation: {
-//     nextEl: '.swiper-button-next',
-//         prevEl: '.swiper-button-prev',
-// },
-
-

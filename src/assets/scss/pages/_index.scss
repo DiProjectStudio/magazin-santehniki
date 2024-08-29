@@ -488,7 +488,7 @@
 
     @include breakpoint(md) {
       --width: calc((100vw - var(--variable) * 2) / 12 * 2);
-      height: calc(var(--width) * 0.7);
+      height: calc(var(--width) * 0.8);
     }
 
     @include breakpoint(hd) {
@@ -520,11 +520,7 @@
 
       @include breakpoint(md) {
         --width: calc((100vw - var(--variable) * 2) / 12 * 2);
-        height: calc(var(--width) * 1.1);
-      }
-
-      @include breakpoint(hd) {
-        --width: calc((1600px - var(--variable) * 2) / 12 * 2 - 20px);
+        height: calc(var(--width) * 1.4);
       }
 
     }

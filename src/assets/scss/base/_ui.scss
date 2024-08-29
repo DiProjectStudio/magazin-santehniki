@@ -258,7 +258,7 @@ input:focus-visible::after {
       @include flexCenterCenter;
       font-size: 12px;
       line-height: 160%;
-      border: 1px solid $black;
+      border: 1px solid $grey;
       color: $black;
       background: transparent;
 
@@ -269,9 +269,9 @@ input:focus-visible::after {
     }
 
     input:checked + label {
-      border: 1px solid $prime;
-      color: $white;
-      background: $prime;
+      border: 2px solid $prime;
+      color: $black;
+      background: #C1D0FF;
     }
   }
 
@@ -281,7 +281,7 @@ input:focus-visible::after {
       width: 24px;
       height: 24px;
       border-radius: 50%;
-      border: 1px solid $grey;
+      border: 2px solid $grey;
 
       &.label--white {
         background: $white;

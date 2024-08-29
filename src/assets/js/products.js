@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 window.addEventListener('resize', () => {
-    navbarAction();
+    debounce(navbarAction, 100);
     hideMobileElements();
     debounce(dropdownMenuAction, 100);
 
@@ -22,9 +22,12 @@ function navbarAction() {
 
 
     if (navbarButton) {
-        navbarButton.addEventListener('click', () => {
+        navbarButton.addEventListener('click', (ev) => {
+
 
             if (window.innerWidth < 1200) {
+                console.log('its working')
+
                 if (dropdownJS.classList.contains('active')) {
                     navbarClose.style.right = '20px'
                 } else {
@@ -44,7 +47,6 @@ function navbarAction() {
 
                 if (navbarButton.classList.contains('active')) {
                     navbarClose.classList.add('active');
-
                     document.body.style.overflow = 'hidden';
                     document.addEventListener('click', function (event) {
                         event.stopPropagation();

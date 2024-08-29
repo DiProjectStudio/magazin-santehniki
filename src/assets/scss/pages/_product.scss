@@ -45,7 +45,7 @@
     }
 
     @include breakpoint(lg) {
-      --swiper-height: calc(((1600px / 2) - 2 * var(--container)) * 0.83);
+      --swiper-height: calc(((1600px / 2) - 2 * var(--container)) * 0.65);
     }
   }
 
@@ -174,7 +174,6 @@
   }
 
   &_items {
-
     display: grid;
     gap: 4px;
     max-width: 600px;
@@ -185,7 +184,6 @@
       gap: 6px;
 
       &__dots {
-
         height: 1px;
         width: 100%;
         border-bottom: 1px dashed $black;
@@ -255,6 +253,7 @@
       line-height: 150%;
       transition: .3s ease;
 
+
       &.active {
         border-bottom: 1px solid $black;
       }
@@ -263,7 +262,6 @@
 
   &__pane {
     display: none;
-    transition: .3s ease;
 
     &.active {
       display: block;
@@ -308,11 +306,19 @@
   }
 
   ul {
-    margin-left: 35px;
+    margin-left: 15px;
     margin-bottom: 15px;
 
     li {
-      list-style: unset;
+      list-style: none;
+      position: relative;
+      padding-left: 20px;
+
+      &::before {
+        content: "-";
+        position: absolute;
+        left: 0;
+      }
     }
   }
 }
@@ -322,7 +328,7 @@
     margin-top: 32px;
     margin-bottom: 24px;
 
-    @include breakpoint(lg) {
+    @include breakpoint(md) {
       margin-top: 48px;
     }
   }

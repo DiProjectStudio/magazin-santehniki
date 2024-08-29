@@ -3,9 +3,11 @@ document.addEventListener('DOMContentLoaded', () => {
     dropdownMenuAction();
 });
 
-document.addEventListener('resize', () => {
-    debounce(navbarAction, 300);
-    debounce(dropdownMenuAction, 300);
+window.addEventListener('resize', () => {
+    navbarAction();
+    hideMobileElements();
+    debounce(dropdownMenuAction, 100);
+
 })
 
 
@@ -18,6 +20,8 @@ function navbarAction() {
     const triggers = document.querySelectorAll('.trig');
     const navbarClose = document.getElementById('navbarClose');
 
+
+    if (navbarButton) {
         navbarButton.addEventListener('click', () => {
 
             if (window.innerWidth < 1200) {
@@ -61,6 +65,8 @@ function navbarAction() {
                 }
             }
         });
+    }
+
 }
 
 function dropdownMenuAction() {
@@ -141,10 +147,45 @@ function debounce(func, delay) {
     let timeoutId;
     return function (...args) {
         clearTimeout(timeoutId);
-        timeoutId = setTimeout(()=> {
+        timeoutId = setTimeout(() => {
             func.apply(this, args);
         }, delay);
     };
+}
+
+function hideMobileElements() {
+    const navbarButton = document.getElementById('navbarButton');
+    const navbarOverlay = document.querySelector('.navbar__overlay');
+    const navbarWrapper = document.querySelector('.navbar__wrapper');
+    const navbarMenu = document.querySelector('.navbar__menu');
+    const navbarClose = document.getElementById('navbarClose');
+
+    if (window.innerWidth >= 1200) {
+        if (navbarButton.classList.contains('active')) {
+            navbarButton.classList.remove('active');
+            console.log('navbarButton hide');
+        }
+
+        if (navbarOverlay.classList.contains('active')) {
+            navbarOverlay.classList.remove('active');
+            console.log('navbarOverlay hide');
+        }
+
+        if (navbarWrapper.classList.contains('active')) {
+            navbarWrapper.classList.remove('active');
+            console.log('navbarWrapper hide');
+        }
+
+        if(navbarMenu.classList.contains('active')) {
+            navbarMenu.classList.remove('active');
+            console.log('navbarMenu hide');
+        }
+
+        if (navbarClose.classList.contains('active')) {
+            navbarClose.classList.remove('active');
+            console.log('navbarClose hide');
+        }
+    }
 }
 
 

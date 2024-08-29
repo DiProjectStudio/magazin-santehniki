@@ -436,6 +436,9 @@ a {
 /////////////////////
 
 .social {
+  svg path {
+    transition: .3s ease;
+  }
   &:hover svg path {
     fill: $btn-hover;
   }

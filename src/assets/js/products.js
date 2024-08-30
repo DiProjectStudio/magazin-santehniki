@@ -7,7 +7,6 @@ window.addEventListener('resize', () => {
     debounce(navbarAction, 100);
     hideMobileElements();
     debounce(dropdownMenuAction, 100);
-
 })
 
 
@@ -20,121 +19,88 @@ function navbarAction() {
     const triggers = document.querySelectorAll('.trig');
     const navbarClose = document.getElementById('navbarClose');
 
+    if (!navbarButton) return;
 
-    if (navbarButton) {
-        navbarButton.addEventListener('click', (ev) => {
+    const toggleActiveClasses = (isActive) => {
+        navbarButton.classList.toggle('active', isActive);
+        navbarOverlay.classList.toggle('active', isActive);
+        navbarWrapper.classList.toggle('active', isActive);
+        navbarMenu.classList.toggle('active', isActive);
+        navbarClose.classList.toggle('active', isActive);
+        document.body.style.overflow = isActive ? 'hidden' : '';
 
+        triggers.forEach(item => item.classList.remove('active'));
+    };
 
-            if (window.innerWidth < 1200) {
-                console.log('its working')
+    const handleNavbarClick = (ev) => {
+        if (window.innerWidth < 1200) {
+            navbarClose.style.right = dropdownJS.classList.contains('active') ? '20px' : '50%';
+            const isActive = !navbarButton.classList.contains('active');
+            toggleActiveClasses(isActive);
 
-                if (dropdownJS.classList.contains('active')) {
-                    navbarClose.style.right = '20px'
-                } else {
-                    navbarClose.style.right = '50%'
-                }
-
-                navbarButton.classList.toggle('active');
-                navbarOverlay.classList.toggle('active');
-                navbarWrapper.classList.toggle('active');
-                navbarMenu.classList.toggle('active');
-
-                triggers.forEach(item => {
-                    if (item.classList.contains('active')) {
-                        item.classList.remove('active');
-                    }
-                });
-
-                if (navbarButton.classList.contains('active')) {
-                    navbarClose.classList.add('active');
-                    document.body.style.overflow = 'hidden';
-                    document.addEventListener('click', function (event) {
-                        event.stopPropagation();
-                        if (!event.composedPath().includes(navbarWrapper)) {
-                            navbarWrapper.classList.remove('active');
-                            navbarOverlay.classList.remove('active');
-                            navbarButton.classList.remove('active');
-                            navbarMenu.classList.remove('active');
-                            dropdownJS.classList.remove('active');
-                            navbarClose.classList.remove('active');
-                            removeDropdownElements(dropdownJS);
-                            document.body.style.overflow = '';
-                        }
-                    });
-                } else {
-                    document.body.style.overflow = '';
-                    navbarClose.classList.remove('active');
-                }
+            if (isActive) {
+                document.addEventListener('click', handleDocumentClick);
+            } else {
+                document.removeEventListener('click', handleDocumentClick);
             }
-        });
-    }
+        }
+    };
 
+    const handleDocumentClick = (event) => {
+        event.stopPropagation();
+        if (!event.composedPath().includes(navbarWrapper)) {
+            toggleActiveClasses(false);
+            dropdownJS.classList.remove('active');
+            removeDropdownElements(dropdownJS);
+        }
+    };
+
+    navbarButton.addEventListener('click', handleNavbarClick);
 }
 
 function dropdownMenuAction() {
     const triggers = document.querySelectorAll('.trig');
-    const navbarMenu = document.querySelector('.navbar__menu');
     const dropdownJS = document.querySelector('.dropdown-menu-js');
     const navbarClose = document.getElementById('navbarClose');
 
-    triggers.forEach(trigger => trigger.addEventListener('click', (event) => {
-
-        if (window.innerWidth < 744 || window.innerWidth >= 1200) {
+    triggers.forEach(trigger => {
+        trigger.addEventListener('click', (event) => {
             const dropdown = trigger.nextElementSibling;
-            let totalHeight = 0;
 
-            dropdown.querySelectorAll('.dropdown-item').forEach((el, index) => {
-                if (window.innerWidth < 744) {
-                    totalHeight += el.clientHeight + 6;
-                }
+            if (window.innerWidth < 744 || window.innerWidth >= 1200) {
+                handleDropdownHeight(dropdown, trigger);
+            } else if (window.innerWidth >= 744 && window.innerWidth < 1200) {
+                handleActiveState(trigger);
+            }
+        });
+    });
 
-                if (window.innerWidth >= 1200) {
-                    totalHeight += el.clientHeight + 10;
-                }
-            });
+    function handleDropdownHeight(dropdown, trigger) {
+        let totalHeight = Array.from(dropdown.querySelectorAll('.dropdown-item')).reduce((acc, el) => {
+            return acc + el.clientHeight + (window.innerWidth < 744 ? 6 : 10);
+        }, 0);
 
-            if (dropdown.style.height === "0px" || dropdown.style.height === "") {
-                dropdown.style.height = totalHeight + "px";
-                dropdown.previousElementSibling.classList.add('active');
-            } else {
-                dropdown.style.height = "0px";
-                dropdown.previousElementSibling.classList.remove('active');
+        dropdown.style.height = dropdown.style.height === "0px" || dropdown.style.height === "" ? `${totalHeight}px` : "0px";
+        trigger.classList.toggle('active', dropdown.style.height !== "0px");
+    }
+
+    function handleActiveState(trigger) {
+        const isActive = trigger.classList.contains('active');
+
+        triggers.forEach(t => t.classList.remove('active'));
+
+        if (!isActive) {
+            trigger.classList.add('active');
+            dropdownJS.classList.add('active');
+            removeDropdownElements(dropdownJS);
+            if (trigger.nextElementSibling) {
+                dropdownJS.appendChild(trigger.nextElementSibling.cloneNode(true));
             }
         }
 
-        if (window.innerWidth >= 744 && window.innerWidth < 1200) {
-
-            const isActive = trigger.classList.contains('active');
-
-            // Убираем класс active у всех триггеров
-            triggers.forEach(t => t.classList.remove('active'));
-
-            // Если текущий триггер не был активен, добавляем класс active
-            if (!isActive) {
-                trigger.classList.add('active');
-                dropdownJS.classList.add('active');
-                removeDropdownElements(dropdownJS);
-                if (trigger.nextElementSibling) {
-                    dropdownJS.appendChild(trigger.nextElementSibling.cloneNode(true));
-                }
-            }
-
-            // Если хотя бы один пункт меню активен, то боковое меню с подкатегориями будет активным
-            if ([...triggers].some(item => item.classList.contains('active'))) {
-                dropdownJS.classList.add('active');
-            } else {
-                dropdownJS.classList.remove('active');
-                removeDropdownElements(dropdownJS);
-            }
-
-            if (!dropdownJS.classList.contains('active')) {
-                removeDropdownElements(dropdownJS);
-                navbarClose.style.right = '';
-            } else {
-                navbarClose.style.right = '20px'
-            }
-        }
-    }));
+        dropdownJS.classList.toggle('active', [...triggers].some(item => item.classList.contains('active')));
+        navbarClose.style.right = dropdownJS.classList.contains('active') ? '20px' : '';
+    }
 }
 
 function removeDropdownElements(parent) {
@@ -156,37 +122,20 @@ function debounce(func, delay) {
 }
 
 function hideMobileElements() {
-    const navbarButton = document.getElementById('navbarButton');
-    const navbarOverlay = document.querySelector('.navbar__overlay');
-    const navbarWrapper = document.querySelector('.navbar__wrapper');
-    const navbarMenu = document.querySelector('.navbar__menu');
-    const navbarClose = document.getElementById('navbarClose');
+    const elementsToHide = [
+        document.getElementById('navbarButton'),
+        document.querySelector('.navbar__overlay'),
+        document.querySelector('.navbar__wrapper'),
+        document.querySelector('.navbar__menu'),
+        document.getElementById('navbarClose')
+    ];
 
     if (window.innerWidth >= 1200) {
-        if (navbarButton.classList.contains('active')) {
-            navbarButton.classList.remove('active');
-            console.log('navbarButton hide');
-        }
-
-        if (navbarOverlay.classList.contains('active')) {
-            navbarOverlay.classList.remove('active');
-            console.log('navbarOverlay hide');
-        }
-
-        if (navbarWrapper.classList.contains('active')) {
-            navbarWrapper.classList.remove('active');
-            console.log('navbarWrapper hide');
-        }
-
-        if(navbarMenu.classList.contains('active')) {
-            navbarMenu.classList.remove('active');
-            console.log('navbarMenu hide');
-        }
-
-        if (navbarClose.classList.contains('active')) {
-            navbarClose.classList.remove('active');
-            console.log('navbarClose hide');
-        }
+        elementsToHide.forEach(element => {
+            if (element.classList.contains('active')) {
+                element.classList.remove('active');
+            }
+        });
     }
 }
 

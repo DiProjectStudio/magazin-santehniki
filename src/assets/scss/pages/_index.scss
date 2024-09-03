@@ -658,6 +658,7 @@
       display: grid;
       grid-template-columns: 1fr;
       gap: 12px;
+      grid-auto-rows: min-content;
     }
   }
 }

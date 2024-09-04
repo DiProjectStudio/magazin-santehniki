@@ -62,6 +62,7 @@ function dropdownMenuAction() {
     const triggers = document.querySelectorAll('.trig');
     const dropdownJS = document.querySelector('.dropdown-menu-js');
     const navbarClose = document.getElementById('navbarClose');
+    const navbarButton = document.getElementById('navbarButton');
 
     triggers.forEach(trigger => {
         trigger.addEventListener('click', (event) => {
@@ -74,6 +75,20 @@ function dropdownMenuAction() {
             }
         });
     });
+
+    triggers.forEach(trigger => {
+
+        const dropdown = trigger.nextElementSibling;
+        if (window.innerWidth > 1200) {
+            if (trigger.classList.contains('active')) {
+                handleDropdownHeight(dropdown, trigger);
+            }
+        }
+
+        if (window.innerWidth > 360 && window.innerWidth < 1200) {
+
+        }
+    })
 
     function handleDropdownHeight(dropdown, trigger) {
         let totalHeight = Array.from(dropdown.querySelectorAll('.dropdown-item')).reduce((acc, el) => {
@@ -127,8 +142,11 @@ function hideMobileElements() {
         document.querySelector('.navbar__overlay'),
         document.querySelector('.navbar__wrapper'),
         document.querySelector('.navbar__menu'),
-        document.getElementById('navbarClose')
-    ];
+        document.getElementById('navbarClose'),
+        document.querySelector('.dropdown-menu-js'),
+        document.querySelector('.dropdown-menu-js .dropdown-menu'),
+        document.querySelector('.menu__item-top.trig')
+];
 
     if (window.innerWidth >= 1200) {
         elementsToHide.forEach(element => {

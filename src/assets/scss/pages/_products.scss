@@ -302,6 +302,11 @@
     display: block;
   }
 
+
+  @include breakpoint(lg) {
+    display: none;
+  }
+
   &.active {
     width: calc(50vw - var(--container));
   }

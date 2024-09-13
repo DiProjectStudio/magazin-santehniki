@@ -13,7 +13,6 @@
   flex-wrap: wrap;
   column-gap: 24px;
   row-gap: 15px;
-  //overflow-x: auto;
 }
 
 .breadcrumbs-item {
@@ -25,6 +24,17 @@
   color: $grey;
   font-size: 14px;
   line-height: 120%; /* 16.8px */
+  a, span {
+    display: inline-block;
+    max-width: 250px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    @include breakpoint(md) {
+      max-width: 500px;
+    }
+  }
 
   &:first-child {
     overflow: unset;

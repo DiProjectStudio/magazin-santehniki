@@ -130,6 +130,21 @@ li {
   isolation: isolate;
 }
 
+.seo-block {
+  margin-bottom: 108px;
+  @include breakpoint(md) {
+    margin-bottom: 140px;
+  }
+
+  @include breakpoint(lg) {
+    margin-bottom: 204px;
+  }
+
+  .section-title {
+    margin-bottom: 24px;
+  }
+}
+
 /////////////////////
 /// INPUTS
 /////////////////////
@@ -439,6 +454,7 @@ a {
   svg path {
     transition: .3s ease;
   }
+
   &:hover svg path {
     fill: $btn-hover;
   }
@@ -480,6 +496,7 @@ a {
 
 .hover--color-prime {
   transition: .3s ease;
+
   &:hover {
     color: $btn-hover;
   }

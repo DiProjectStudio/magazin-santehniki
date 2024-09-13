@@ -35,7 +35,7 @@ $(document).ready(function () {
             prevEl: '.style .slider-arrow--prev',
         },
         spaceBetween: 20,
-        loop: slides.length >= 8,
+        loop: slides.length >= 3,
         breakpoints: {
             744: {
                 slidesPerView: 3,

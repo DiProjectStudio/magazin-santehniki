@@ -3,8 +3,9 @@
   justify-items: center;
   border-radius: 20px;
   grid-auto-flow: row;
-  padding: 24px 29px 6px;
+  padding: 24px 20px 0;
   transition: $transition;
+  gap: 15px;
 
   @include breakpoint(lg) {
     padding: 40px 30px;
@@ -23,18 +24,23 @@
     display: flex;
     align-items: end;
     justify-content: center;
+    align-self: flex-start;
+    border-radius: 20px;
+    overflow: hidden;
+    isolation: isolate;
 
     img {
-      width: 45%;
+      width: 100%;
       height: auto;
       object-fit: contain;
+      max-height: 78px;
 
       @include breakpoint(lg) {
-        width: 70%;
+        max-height: 157px;
       }
 
       @include breakpoint(hd) {
-        width: 100%;
+        max-height: 260px;
       }
     }
   }
@@ -43,7 +49,7 @@
     color: $black;
     font-size: 16px;
     text-align: center;
-    align-self: center;
+    align-self: flex-start;
   }
 
 }

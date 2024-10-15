@@ -27,6 +27,8 @@ $(document).ready(function () {
     });
 
     const slides = document.querySelectorAll('.style .swiper-slide');
+
+    sliderClone('.style');
     const sliderStyle = new Swiper('.style__slider.swiper', {
 
         slidesPerView: 1,
@@ -35,22 +37,13 @@ $(document).ready(function () {
             prevEl: '.style .slider-arrow--prev',
         },
         spaceBetween: 20,
-        loop: slides.length >= 3,
+        loop: true,
         breakpoints: {
             744: {
                 slidesPerView: 3,
                 centeredSlides: true,
                 centeredSlidesBounds: true,
                 spaceBetween: 20,
-                loop: true,
-                effect: 'fade',
-                fadeEffect: {
-                    crossFade: true
-                },
-                freeMode: {
-                    enabled: true,
-                    sticky: true,
-                },
             },
         },
     });
@@ -82,4 +75,23 @@ $(document).ready(function () {
     });
 
 });
+
+function sliderClone(parent) {
+    const allSlides = document.querySelectorAll(`${parent} .swiper-slide`);
+    const slidesCount = allSlides.length;
+    let iterationCount = 0;
+
+    if (slidesCount >= 9 || !slidesCount) {
+        return;
+    }
+
+    iterationCount = Math.floor(9 / slidesCount);
+    for (let i = 0; i < iterationCount - 1; i++) {
+        allSlides.forEach(slide => {
+            const slidesParent = slide.parentElement;
+            let clonedSlide = slide.cloneNode(true);
+            slidesParent.appendChild(clonedSlide);
+        });
+    }
+}
 

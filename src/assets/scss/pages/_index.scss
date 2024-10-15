@@ -307,6 +307,7 @@
     .swiper-slide {
       height: 220px;
       margin-bottom: 68px;
+      cursor: grab;
 
       @include breakpoint(md) {
         height: 319px;
@@ -485,6 +486,7 @@
     width: 100%;
     height: calc((100vw - var(--container) * 2) * 0.96);
     transition: .6s ease;
+    cursor: grab;
 
     @include breakpoint(md) {
       --width: calc((100vw - var(--variable) * 2) / 12 * 2);

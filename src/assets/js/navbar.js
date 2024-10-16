@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
     navbar();
 })
 
-
 function navbar() {
     const burgerToggle = document.getElementById('burgerToggle');
     const navMenu = document.querySelector('.header__inner_menu');

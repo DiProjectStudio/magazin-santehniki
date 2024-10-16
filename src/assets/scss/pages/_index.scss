@@ -439,6 +439,14 @@
     line-height: 130%; /* 26px */
     text-transform: uppercase;
     margin-bottom: 12px;
+
+    @include breakpoint(lg) {
+      font-size: 36px;
+    }
+
+    @include breakpoint(xl) {
+      font-size: 42px;
+    }
   }
 
   &__subtitle {
@@ -452,6 +460,12 @@
       max-width: 500px;
       margin: 0 auto 80px;
     }
+
+    @include breakpoint(lg) {
+      max-width: 664px;
+      margin-bottom: 120px;
+    }
+
   }
 
   .slider-arrows {
@@ -460,10 +474,17 @@
     top: 150px;
     left: calc(50% - 33px);
 
-
     @include breakpoint(md) {
       @include flexCenterCenter;
       gap: 24px;
+    }
+
+    @include breakpoint(lg) {
+      top: 210px
+    }
+
+    @include breakpoint(xl) {
+      top: 230px;
     }
 
     .slider-arrow--prev, .slider-arrow--next {
@@ -478,7 +499,7 @@
   &__slider {
     @include breakpoint(md) {
       --width: calc((100vw - var(--variable) * 2) / 12 * 4);
-      height: calc(var(--width) * 0.9);
+      height: calc(var(--width));
     }
   }
 
@@ -511,7 +532,7 @@
 
       @include breakpoint(md) {
         --width: calc((100vw - var(--variable) * 2) / 12 * 4);
-        height: calc(var(--width) * 0.9);
+        height: calc(var(--width));
       }
     }
 

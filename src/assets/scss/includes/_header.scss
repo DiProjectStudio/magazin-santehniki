@@ -86,7 +86,7 @@
       &-numbers {
         display: grid;
         grid-auto-flow: row;
-        justify-items: flex-end;
+        justify-items: flex-start;
         gap: 6px;
         color: $black;
         text-align: right;

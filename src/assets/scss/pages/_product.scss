@@ -159,6 +159,22 @@
   gap: 12px;
   margin-bottom: 24px;
 
+  h1 {
+    font-size: 18px;
+
+    @include breakpoint(md) {
+      font-size: 20px;
+    }
+
+    @include breakpoint(lg) {
+      font-size: 22px;
+    }
+
+    @include breakpoint(xl) {
+      font-size: 24px;
+    }
+  }
+
   &_article, &_type {
     color: $grey;
     line-height: 150%;
@@ -182,6 +198,7 @@
       @include flexCenterBetween;
       text-wrap: nowrap;
       gap: 6px;
+
 
       &__dots {
         height: 1px;
